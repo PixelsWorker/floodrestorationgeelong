@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /wp-admin/
+Allow: /wp-admin/admin-ajax.php
+
+Sitemap: https://floodrestorationgeelong.au/news-sitemap.xml
+Sitemap: https://floodrestorationgeelong.au/sitemap.xml
+Sitemap: https://floodrestorationgeelong.au/sitemap.rss
