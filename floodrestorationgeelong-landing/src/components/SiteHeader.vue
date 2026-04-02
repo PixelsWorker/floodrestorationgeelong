@@ -30,11 +30,11 @@ const toggleMenu = () => {
 
       <nav :class="{ 'is-open': isMenuOpen }">
         <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/about">About</a></li>
-          <li><a href="/emergency-water-restoration-geelong">Emergency Water Restoration</a></li>
-          <li><a href="/water-damage-repairs-geelong">Water Damage Repairs</a></li>
-          <li><a href="/contact">Contact</a></li>
+          <li><a href="/" @click="isMenuOpen = false">Home</a></li>
+          <li><a href="/about" @click="isMenuOpen = false">About</a></li>
+          <li><a href="/emergency-water-restoration-geelong" @click="isMenuOpen = false">Emergency Water Restoration</a></li>
+          <li><a href="/water-damage-repairs-geelong" @click="isMenuOpen = false">Water Damage Repairs</a></li>
+          <li><a href="/contact" @click="isMenuOpen = false">Contact</a></li>
         </ul>
       </nav>
 

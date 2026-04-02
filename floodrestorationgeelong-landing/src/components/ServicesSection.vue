@@ -170,9 +170,15 @@ const services = [
   }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 768px) {
   .services-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr); /* keep 2col to 480 */
+  }
+}
+
+@media (max-width: 480px) {
+  .services-grid {
+    grid-template-columns: 1fr; /* single col on phones */
   }
 }
 </style>

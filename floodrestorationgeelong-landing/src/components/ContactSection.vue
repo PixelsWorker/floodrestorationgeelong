@@ -1,3 +1,23 @@
+<script setup>
+import { reactive } from 'vue'
+
+const form = reactive({
+  name: '',
+  email: '',
+  phone: '',
+  suburb: '',
+  postcode: '',
+  message: ''
+})
+
+const handleSubmit = () => {
+  console.log('Form Submitted:', form)
+  alert('Thank you for your message. We will get back to you shortly!')
+  // Reset form
+  Object.keys(form).forEach(key => form[key] = '')
+}
+</script>
+
 <template>
   <section class="contact" id="contact">
     <div class="container narrow">
@@ -22,20 +42,20 @@
         </div>
 
         <div class="contact-form">
-          <form @submit.prevent>
+          <form @submit.prevent="handleSubmit">
             <div class="form-group">
-              <input type="text" placeholder="Your Name" required />
+              <input v-model="form.name" type="text" placeholder="Your Name" required />
             </div>
             <div class="form-group row">
-              <input type="email" placeholder="Your Email" required />
-              <input type="tel" placeholder="Phone Number" required />
+              <input v-model="form.email" type="email" placeholder="Your Email" required />
+              <input v-model="form.phone" type="tel" placeholder="Phone Number" required />
             </div>
             <div class="form-group row">
-              <input type="text" placeholder="Suburb" required />
-              <input type="text" placeholder="Post Code" required />
+              <input v-model="form.suburb" type="text" placeholder="Suburb" required />
+              <input v-model="form.postcode" type="text" placeholder="Post Code" required />
             </div>
             <div class="form-group">
-              <textarea placeholder="How can we help?" rows="4"></textarea>
+              <textarea v-model="form.message" placeholder="How can we help?" rows="4"></textarea>
             </div>
             <button type="submit" class="btn btn-full">Send Message</button>
           </form>
@@ -131,10 +151,7 @@ input:focus, textarea:focus {
   background-color: var(--white);
 }
 
-.btn-full {
-  width: 100%;
-  padding: 15px;
-}
+/* btn-full is now defined in main.css */
 
 @media (max-width: 768px) {
   .contact-box {
