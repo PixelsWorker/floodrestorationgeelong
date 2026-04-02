@@ -124,7 +124,7 @@ const reviews = [
 
 .review-card {
   background: var(--white);
-  padding: 24px;
+  padding: 20px;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.03);
   display: flex;
@@ -204,9 +204,13 @@ const reviews = [
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .reviews-grid {
     grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  .testimonials {
+    padding: 60px 0;
   }
 }
 </style>

@@ -7,7 +7,7 @@ const services = [
   },
   {
     title: 'Carpet Water Extraction',
-    image: 'https://floodrestorationgeelong.au/wp-content/uploads/2025/10/Carpet-cleaning-2-1-1-1-1024x768.webp',
+    image: 'https://floodrestorationgeelong.au/wp-content/uploads/2025/10/Carpet-cleaning-2-1-1-1024x768.webp',
     link: 'https://floodrestorationgeelong.au/carpet-water-extraction-geelong'
   },
   {
@@ -160,24 +160,13 @@ const services = [
   color: var(--blue);
 }
 
-@media (max-width: 1200px) {
-  .services-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
 @media (max-width: 768px) {
   .services {
-    padding: 80px 0 60px;
+    padding: 60px 0;
   }
-  .services-grid {
-    gap: 20px;
-  }
-}
-
-@media (max-width: 480px) {
   .services-grid {
     grid-template-columns: 1fr;
+    gap: 20px;
   }
 }
 </style>

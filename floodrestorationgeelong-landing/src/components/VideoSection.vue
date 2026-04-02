@@ -100,6 +100,10 @@ const videos = [
 @media (max-width: 768px) {
   .video-grid {
     grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .video-showcase {
+    padding: 60px 0;
   }
 }
 </style>
