@@ -1,28 +1,23 @@
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref } from 'vue'
 
-const isScrolled = ref(false)
 const isMenuOpen = ref(false)
-
-const handleScroll = () => {
-  isScrolled.value = window.scrollY > 50
-}
 
 const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value
 }
-
-onMounted(() => {
-  window.addEventListener('scroll', handleScroll)
-})
-
-onUnmounted(() => {
-  window.removeEventListener('scroll', handleScroll)
-})
 </script>
 
 <template>
-  <header :class="{ 'is-scrolled': isScrolled }">
+  <!-- Topbar -->
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <span>Geelong's #1 Flood Restoration Experts — IICRC Certified</span>
+      <a href="tel:0459338998" class="topbar-phone">📞 0459 338 998</a>
+    </div>
+  </div>
+
+  <header>
     <div class="container header-inner">
       <div class="logo">
         <a href="/">
@@ -44,7 +39,7 @@ onUnmounted(() => {
       </nav>
 
       <div class="cta">
-        <a href="#book" class="btn">Book Now</a>
+        <a href="#book" class="btn btn-primary">Book Now</a>
         <button class="menu-toggle" @click="toggleMenu" aria-label="Toggle Menu">
           <span></span>
           <span></span>
@@ -56,21 +51,34 @@ onUnmounted(() => {
 </template>
 
 <style scoped>
+.topbar {
+  background: var(--navy);
+  color: var(--white);
+  padding: 8px 0;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.topbar-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.topbar-phone {
+  font-weight: 700;
+}
+
 header {
-  position: fixed;
+  background: var(--white);
+  box-shadow: var(--shadow-main);
+  position: sticky;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 1000;
-  background-color: transparent;
   transition: var(--transition-fast);
-  padding: 20px 0;
-}
-
-header.is-scrolled {
-  background-color: var(--white);
-  box-shadow: var(--shadow-main);
-  padding: 10px 0;
+  padding: 15px 0;
 }
 
 .header-inner {
@@ -80,7 +88,7 @@ header.is-scrolled {
 }
 
 .logo img {
-  height: 60px;
+  height: 55px;
   width: auto;
 }
 
@@ -90,13 +98,13 @@ nav ul {
 }
 
 nav ul li a {
-  font-weight: 500;
-  color: var(--secondary-color);
+  font-weight: 600;
+  color: var(--navy);
   font-size: 15px;
 }
 
 nav ul li a:hover {
-  color: var(--primary-color);
+  color: var(--blue);
 }
 
 .cta {
@@ -117,7 +125,7 @@ nav ul li a:hover {
 .menu-toggle span {
   width: 25px;
   height: 2px;
-  background-color: var(--secondary-color);
+  background-color: var(--navy);
   transition: var(--transition-fast);
 }
 
@@ -144,6 +152,12 @@ nav ul li a:hover {
 
   .menu-toggle {
     display: flex;
+  }
+}
+
+@media (max-width: 576px) {
+  .topbar {
+    display: none;
   }
 }
 </style>

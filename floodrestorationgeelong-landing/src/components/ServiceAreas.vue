@@ -11,17 +11,20 @@ const suburbs = [
 <template>
   <section class="service-areas">
     <div class="container">
-      <div class="section-title">
-        <h2>Area We Service</h2>
-        <p>Providing rapid flood restoration across Geelong and surroundings.</p>
+      <div class="section-header">
+        <label class="section-label" style="color: var(--blue-light)">Service Coverage</label>
+        <h2 class="section-title">Area We Service</h2>
+        <p class="section-subtitle">Providing rapid flood restoration across Geelong and surroundings.</p>
       </div>
 
       <div class="suburbs-grid">
-        <ul v-for="col in 4" :key="col">
-          <li v-for="(suburb, index) in suburbs.slice((col-1)*13, col*13)" :key="index">
-            <span class="dot">📍</span> {{ suburb }}
-          </li>
-        </ul>
+        <div v-for="col in 4" :key="col" class="suburb-col">
+          <ul class="suburb-list">
+            <li v-for="(suburb, index) in suburbs.slice((col-1)*13, col*13)" :key="index">
+              <span class="area-tag">📍 {{ suburb }}</span>
+            </li>
+          </ul>
+        </div>
       </div>
 
       <div class="map-container">
@@ -41,12 +44,17 @@ const suburbs = [
 
 <style scoped>
 .service-areas {
-  background-color: var(--white);
+  background-color: var(--navy);
+  padding: 80px 0;
 }
 
 .section-title {
-  text-align: center;
-  margin-bottom: 40px;
+  color: var(--white);
+}
+
+.section-subtitle {
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0 auto 56px;
 }
 
 .suburbs-grid {
@@ -57,36 +65,61 @@ const suburbs = [
   flex-wrap: wrap;
 }
 
-.suburbs-grid ul {
+.suburb-col {
   flex: 1;
-  min-width: 200px;
+  min-width: 180px;
 }
 
-.suburbs-grid li {
-  padding: 8px 0;
-  border-bottom: 1px solid #f0f0f0;
-  font-size: 14px;
-  color: var(--text-light);
+.suburb-list {
   display: flex;
-  align-items: center;
-  gap: 10px;
+  flex-direction: column;
+  gap: 12px;
 }
 
-.dot {
-  font-size: 12px;
+.area-tag {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.08); /* Semi-transparent */
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.85);
+  padding: 8px 16px;
+  border-radius: 100px;
+  font-size: clamp(12px, 1.5vw, 14px);
+  cursor: pointer;
+  transition: var(--transition-fast);
+  white-space: nowrap;
+}
+
+.area-tag:hover {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: white;
+  transform: translateY(-2px);
 }
 
 .map-container {
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: var(--shadow-main);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
   margin-top: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   .suburbs-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
+}
+
+@media (max-width: 576px) {
+  .suburbs-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  
+  .suburb-list {
+    align-items: center;
   }
 }
 </style>

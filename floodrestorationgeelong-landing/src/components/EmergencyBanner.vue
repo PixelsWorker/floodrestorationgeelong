@@ -6,7 +6,7 @@
         <p>Expert 24/7 assistance is just a phone call away. Don't wait for mould to grow.</p>
       </div>
       <div class="banner-cta">
-        <a href="tel:0459338998" class="btn btn-large">
+        <a href="tel:0459338998" class="btn btn-outline btn-large">
           <span class="icon">📞</span> Call 0459 338 998 Now
         </a>
       </div>
@@ -16,9 +16,9 @@
 
 <style scoped>
 .emergency-banner {
-  background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+  background-color: var(--red);
   color: var(--white);
-  padding: 50px 0;
+  padding: 60px 0;
 }
 
 .banner-inner {
@@ -29,31 +29,32 @@
 }
 
 .banner-text h2 {
-  font-size: 28px;
-  margin-bottom: 10px;
+  font-size: 32px;
+  margin-bottom: 12px;
+  line-height: 1.2;
 }
 
 .banner-text p {
-  opacity: 0.9;
-  font-size: 18px;
+  opacity: 0.95;
+  font-size: 19px;
+  max-width: 600px;
 }
 
 .btn-large {
   padding: 18px 40px;
   font-size: 20px;
-  background-color: var(--white);
-  color: var(--primary-color);
+  font-weight: 700;
 }
 
-.btn-large:hover {
-  background-color: var(--bg-accent);
-  color: var(--primary-hover);
-}
-
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   .banner-inner {
     flex-direction: column;
     text-align: center;
+    gap: 40px;
+  }
+  
+  .banner-text h2 {
+    font-size: 28px;
   }
 }
 </style>
