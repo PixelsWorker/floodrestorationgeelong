@@ -71,7 +71,6 @@
 .footer-logo {
   height: 80px;
   margin-bottom: 20px;
-  filter: brightness(0) invert(1);
 }
 
 .footer-brand p {

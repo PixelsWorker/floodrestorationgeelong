@@ -30,26 +30,28 @@ onMounted(() => {
     </div>
 
     <div class="container hero-content">
-      <div class="section-label" style="color: var(--blue-light)">Geelong Flood Restoration</div>
-      <h1 class="hero-title">Geelong's #1 Flood Restoration & Water Damage Repair Experts</h1>
-      <p class="hero-description">
-        Emergency <strong>Water Damage Repairs Geelong</strong> | <strong>24/7 Flood Recovery</strong> – 
-        Flood Restoration Geelong offers around-the-clock emergency water damage repairs in Geelong. 
-        Our <strong>IICRC-certified team</strong> with over 20 years of experience provides rapid water extraction, drying, and recovery.
-      </p>
-      
-      <div class="hero-btns">
-        <a href="tel:0459338998" class="btn btn-emergency">
-          <span class="icon">📞</span> Call Now 0459 338 998
-        </a>
-        <a href="https://floodrestorationgeelong.au/contact" target="_blank" rel="noopener" class="btn btn-outline">Get a Free Quote</a>
-      </div>
+      <div class="content-left">
+        <label class="section-label" style="color: var(--blue-light); margin-bottom: 20px;">Flood Restoration Geelong</label>
+        <h1 class="hero-title">Geelong's #1 Flood Restoration & Water Damage Repair Experts</h1>
+        <p class="hero-description">
+          Emergency <strong>Water Damage Repairs Geelong</strong> | <strong>24/7 Flood Recovery</strong> – 
+          Flood Restoration Geelong offers around-the-clock emergency water damage repairs in Geelong. 
+          Our <strong>IICRC-certified team</strong> with over 20 years of experience provides rapid water extraction, drying, and recovery.
+        </p>
+        
+        <div class="hero-btns">
+          <a href="tel:0459338998" class="btn btn-emergency">
+            <span class="icon">📞</span> CALL US 0459 338 998
+          </a>
+          <a href="https://floodrestorationgeelong.au/contact" target="_blank" rel="noopener" class="btn btn-outline">Get a Free Quote</a>
+        </div>
 
-      <div class="hero-badges">
-        <div class="badge">✔ IICRC Certified</div>
-        <div class="badge">✔ 20+ Years Experience</div>
-        <div class="badge">✔ Available 24/7</div>
-        <div class="badge">✔ Insurance Assist</div>
+        <div class="hero-badges">
+          <div class="badge">✔ IICRC Certified</div>
+          <div class="badge">✔ 20+ Years Experience</div>
+          <div class="badge">✔ Available 24/7</div>
+          <div class="badge">✔ Insurance Assist</div>
+        </div>
       </div>
     </div>
   </section>
@@ -58,11 +60,11 @@ onMounted(() => {
 <style scoped>
 .hero {
   position: relative;
-  min-height: calc(100vh - 100px); /* Adjust for header/topbar */
+  min-height: 85vh;
   display: flex;
   align-items: center;
   color: var(--white);
-  padding: 100px 0;
+  padding: 120px 0;
   overflow: hidden;
 }
 
@@ -97,28 +99,30 @@ onMounted(() => {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(7, 26, 48, 0.85), rgba(0, 119, 200, 0.45));
+  background: linear-gradient(90deg, rgba(7, 26, 48, 0.95) 0%, rgba(7, 26, 48, 0.65) 60%, rgba(7, 26, 48, 0.45) 100%);
 }
 
-.hero-content {
+.content-left {
   max-width: 850px;
   text-align: left;
 }
 
 .hero-title {
-  font-size: clamp(32px, 6vw, 64px);
+  font-size: clamp(32px, 5.5vw, 60px);
   line-height: 1.1;
   margin-bottom: 24px;
   color: var(--white);
   font-weight: 800;
+  letter-spacing: -0.5px;
 }
 
 .hero-description {
-  font-size: clamp(16px, 2vw, 19px);
+  font-size: clamp(16px, 1.8vw, 20px);
   margin-bottom: 40px;
-  max-width: 700px;
+  max-width: 750px;
   opacity: 0.95;
   color: var(--white);
+  line-height: 1.6;
 }
 
 .hero-btns {
@@ -128,30 +132,37 @@ onMounted(() => {
   margin-bottom: 40px;
 }
 
+.btn-emergency {
+  padding: 16px 35px;
+  font-size: 17px;
+  box-shadow: 0 10px 20px rgba(227, 30, 36, 0.3);
+}
+
 .hero-badges {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 12px;
 }
 
 .badge {
-  background: rgba(255, 255, 255, 0.10);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: rgba(255, 255, 255, 0.95);
   font-size: 13px;
   font-weight: 600;
-  padding: 8px 14px;
-  border-radius: 6px;
+  padding: 8px 16px;
+  border-radius: 50px;
+}
+
+@media (max-width: 992px) {
+  .hero {
+    min-height: auto;
+    padding: 100px 0;
+  }
 }
 
 @media (max-width: 768px) {
-  .hero {
-    min-height: auto;
-    text-align: center;
-    padding: 80px 0;
-  }
-  
-  .hero-content {
+  .content-left {
     text-align: center;
   }
   

@@ -1,10 +1,11 @@
 <script setup>
 import SiteHeader from './components/SiteHeader.vue'
 import HeroSection from './components/HeroSection.vue'
-import TrustBar from './components/TrustBar.vue'
 import ServicesSection from './components/ServicesSection.vue'
-import HowItWorks from './components/HowItWorks.vue'
+import TrustBar from './components/TrustBar.vue'
 import WhyChooseUs from './components/WhyChooseUs.vue'
+import HowItWorks from './components/HowItWorks.vue'
+import VideoSection from './components/VideoSection.vue'
 import EmergencyBanner from './components/EmergencyBanner.vue'
 import TestimonialsSection from './components/TestimonialsSection.vue'
 import ServiceAreas from './components/ServiceAreas.vue'
@@ -18,10 +19,11 @@ import SiteFooter from './components/SiteFooter.vue'
     <SiteHeader />
     <main>
       <HeroSection />
-      <TrustBar />
       <ServicesSection />
-      <HowItWorks />
+      <TrustBar />
       <WhyChooseUs />
+      <HowItWorks />
+      <VideoSection />
       <EmergencyBanner />
       <TestimonialsSection />
       <ServiceAreas />

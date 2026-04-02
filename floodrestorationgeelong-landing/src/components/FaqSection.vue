@@ -34,9 +34,10 @@ const toggle = (index) => {
 <template>
   <section class="faq">
     <div class="container narrow">
-      <div class="section-title">
-        <h2>Frequently Asked Questions</h2>
-        <p>Expert answers to your common flood restoration concerns.</p>
+      <div class="section-header">
+        <label class="section-label">Common Questions</label>
+        <h2 class="section-title">Frequently Asked Questions - Water Damage Restoration Geelong</h2>
+        <p class="section-subtitle">Expert answers to your most common flood restoration and water damage concerns.</p>
       </div>
 
       <div class="faq-list">
@@ -47,10 +48,10 @@ const toggle = (index) => {
           :class="{ active: activeIndex === index }"
         >
           <button class="faq-question" @click="toggle(index)">
-            <span>{{ faq.question }}</span>
-            <span class="icon">{{ activeIndex === index ? '−' : '+' }}</span>
+            <span class="q-icon">{{ activeIndex === index ? '−' : '+' }}</span>
+            <span class="q-text">{{ faq.question }}</span>
           </button>
-          <div class="faq-answer-wrapper" :style="{ maxHeight: activeIndex === index ? '200px' : '0' }">
+          <div class="faq-answer-wrapper" :style="{ maxHeight: activeIndex === index ? '300px' : '0' }">
             <div class="faq-answer">
               <p>{{ faq.answer }}</p>
             </div>
@@ -63,16 +64,12 @@ const toggle = (index) => {
 
 <style scoped>
 .faq {
-  background-color: var(--bg-light);
+  background-color: var(--soft-blue);
+  padding: 100px 0;
 }
 
 .narrow {
-  max-width: 800px;
-}
-
-.section-title {
-  text-align: center;
-  margin-bottom: 50px;
+  max-width: 950px;
 }
 
 .faq-list {
@@ -83,53 +80,75 @@ const toggle = (index) => {
 
 .faq-item {
   background: var(--white);
+  border: 1px solid var(--border);
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  transition: var(--transition-fast);
+}
+
+.faq-item.active {
+  border-color: var(--blue);
+  box-shadow: 0 5px 15px rgba(0, 119, 204, 0.05);
 }
 
 .faq-question {
   width: 100%;
-  padding: 20px 25px;
+  padding: 22px 30px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  gap: 20px;
   background: none;
   border: none;
   text-align: left;
-  font-size: 17px;
-  font-weight: 600;
-  color: var(--secondary-color);
+  font-size: clamp(15px, 2vw, 17px);
+  font-weight: 700;
+  color: var(--navy);
   cursor: pointer;
   transition: var(--transition-fast);
 }
 
-.faq-question:hover {
-  background-color: rgba(0, 119, 204, 0.02);
+.q-icon {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--blue);
+  color: var(--blue);
+  border-radius: 50%;
+  font-weight: 800;
+  font-size: 16px;
 }
 
-.icon {
-  font-size: 24px;
-  color: var(--primary-color);
-  line-height: 1;
+.active .q-icon {
+  background: var(--blue);
+  color: var(--white);
 }
 
 .faq-answer-wrapper {
   overflow: hidden;
-  transition: all 0.3s ease-out;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .faq-answer {
-  padding: 0 25px 20px;
+  padding: 0 30px 30px 74px; /* Offset to align with q-text */
 }
 
 .faq-answer p {
-  color: var(--text-light);
-  font-size: 15px;
-  line-height: 1.7;
+  color: var(--text-mid);
+  font-size: 15.5px;
+  line-height: 1.8;
+  border-top: 1px solid var(--bg-soft-blue);
+  padding-top: 15px;
 }
 
-.faq-item.active .faq-question {
-  color: var(--primary-color);
+@media (max-width: 768px) {
+  .faq-answer {
+    padding: 0 25px 25px 25px;
+  }
+  .faq-question {
+    padding: 20px;
+  }
 }
 </style>

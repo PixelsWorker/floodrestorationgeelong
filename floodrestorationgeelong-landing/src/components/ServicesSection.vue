@@ -7,7 +7,7 @@ const services = [
   },
   {
     title: 'Carpet Water Extraction',
-    image: 'https://floodrestorationgeelong.au/wp-content/uploads/2025/10/Carpet-cleaning-2-1-1-1024x768.webp',
+    image: 'https://floodrestorationgeelong.au/wp-content/uploads/2025/10/Carpet-cleaning-2-1-1-1-1024x768.webp',
     link: 'https://floodrestorationgeelong.au/carpet-water-extraction-geelong'
   },
   {
@@ -45,10 +45,17 @@ const services = [
 
 <template>
   <section class="services" id="services">
-    <div class="container">
-      <div class="section-title">
-        <h2>Our Flood Restoration Geelong Services</h2>
-        <div class="divider"></div>
+    <div class="wave-divider top">
+      <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+      </svg>
+    </div>
+
+    <div class="container relative-z">
+      <div class="section-header">
+        <label class="section-label">Our Expertise</label>
+        <h2 class="section-title">Our Flood Restoration Geelong Services</h2>
+        <p class="section-subtitle">Comprehensive water damage recovery solutions for residential and commercial properties in Geelong.</p>
       </div>
 
       <div class="services-grid">
@@ -56,7 +63,7 @@ const services = [
           <div class="card-image">
             <img :src="service.image" :alt="service.title" />
             <div class="overlay">
-              <a :href="service.link" target="_blank" rel="noopener" class="btn btn-sm">View Service</a>
+              <a :href="service.link" target="_blank" rel="noopener" class="btn btn-sm btn-primary">View Service</a>
             </div>
           </div>
           <div class="card-body">
@@ -70,49 +77,41 @@ const services = [
 
 <style scoped>
 .services {
-  background-color: var(--white);
+  background-color: var(--soft-blue);
+  position: relative;
+  overflow: visible;
+  padding: 100px 0 120px;
 }
 
-.section-title {
-  text-align: center;
-  margin-bottom: 50px;
-}
-
-.section-title h2 {
-  font-size: 36px;
-  color: var(--navy);
-  margin-bottom: 15px;
-}
-
-.divider {
-  width: 80px;
-  height: 4px;
-  background-color: var(--blue);
-  margin: 0 auto;
+.relative-z {
+  position: relative;
+  z-index: 2;
 }
 
 .services-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 30px;
+  gap: 25px;
 }
 
 .service-card {
   background: var(--white);
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 15px rgba(0, 119, 204, 0.04);
   transition: var(--transition-fast);
+  border: 1px solid rgba(0, 119, 204, 0.05);
 }
 
 .service-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0, 119, 204, 0.1);
+  border-color: var(--blue-light);
 }
 
 .card-image {
   position: relative;
-  height: 200px;
+  height: 220px;
   overflow: hidden;
 }
 
@@ -120,7 +119,7 @@ const services = [
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s ease;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .service-card:hover .card-image img {
@@ -133,7 +132,7 @@ const services = [
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 119, 204, 0.6);
+  background: rgba(11, 37, 69, 0.7);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -146,20 +145,20 @@ const services = [
 }
 
 .card-body {
-  padding: 20px;
+  padding: 24px;
   text-align: center;
 }
 
 .card-body h3 {
-  font-size: 18px;
+  font-size: 17px;
   color: var(--navy);
+  font-weight: 700;
+  line-height: 1.4;
 }
 
 .card-body h3 a:hover {
   color: var(--blue);
 }
-
-/* btn-sm is now in main.css */
 
 @media (max-width: 1200px) {
   .services-grid {
@@ -168,14 +167,17 @@ const services = [
 }
 
 @media (max-width: 768px) {
+  .services {
+    padding: 80px 0 60px;
+  }
   .services-grid {
-    grid-template-columns: repeat(2, 1fr); /* keep 2col to 480 */
+    gap: 20px;
   }
 }
 
 @media (max-width: 480px) {
   .services-grid {
-    grid-template-columns: 1fr; /* single col on phones */
+    grid-template-columns: 1fr;
   }
 }
 </style>

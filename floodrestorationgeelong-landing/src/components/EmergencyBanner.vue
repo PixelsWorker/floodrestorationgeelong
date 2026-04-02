@@ -16,9 +16,12 @@
 
 <style scoped>
 .emergency-banner {
-  background-color: var(--red);
+  background: linear-gradient(rgba(30, 96, 227, 0.85), rgba(227, 30, 36, 0.85)), url('https://floodrestorationgeelong.au/wp-content/uploads/2026/01/commercial-flood-recovery-in-progress-geelong.webp');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
   color: var(--white);
-  padding: 60px 0;
+  padding: 80px 0;
 }
 
 .banner-inner {

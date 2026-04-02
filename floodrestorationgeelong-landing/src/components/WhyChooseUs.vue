@@ -9,7 +9,8 @@
           it’s emotional stress and disruption to your daily life.
         </p>
         <p>
-          We are a locally based Geelong business, serving homeowners, landlords, real estate 
+          We are not a call centre or a franchise sending technicians from outside the region. We are a 
+          locally based Geelong business, serving homeowners, landlords, real estate 
           agencies, and commercial premises across <strong>Geelong and surrounding suburbs</strong>.
         </p>
         
@@ -23,7 +24,7 @@
           </ul>
         </div>
 
-        <a href="https://floodrestorationgeelong.au/our-works" target="_blank" rel="noopener" class="btn btn-outline-dark">Our Work Gallery</a>
+        <a href="https://floodrestorationgeelong.au/our-works" target="_blank" rel="noopener" class="btn btn-primary">OUR FLOOD RESTORATION WORK GALLERY</a>
       </div>
       <div class="image-box">
         <img 
@@ -38,68 +39,68 @@
 <style scoped>
 .why-choose-us {
   background-color: var(--white);
+  padding: 100px 0;
 }
 
 .grid {
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
+  grid-template-columns: 1.1fr 0.9fr;
   gap: 80px;
   align-items: center;
 }
 
 h2 {
-  font-size: 32px;
-  color: var(--secondary-color);
-  margin-bottom: 25px;
+  font-size: 36px;
+  color: var(--navy);
+  margin-bottom: 30px;
 }
 
 p {
-  color: var(--text-light);
-  margin-bottom: 20px;
-  font-size: 16px;
+  color: var(--text-mid);
+  margin-bottom: 25px;
+  font-size: 16.5px;
+  line-height: 1.8;
 }
 
 .benefits {
   background-color: var(--bg-accent);
-  padding: 30px;
+  padding: 40px;
   border-radius: 12px;
-  margin: 30px 0;
+  margin: 35px 0;
+  border: 1px solid rgba(0, 119, 204, 0.08);
 }
 
 .benefits h3 {
-  font-size: 18px;
-  margin-bottom: 15px;
-  color: var(--secondary-color);
+  font-size: 19px;
+  margin-bottom: 20px;
+  color: var(--navy);
 }
 
 .benefits ul {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 15px;
 }
 
 .benefits li {
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-weight: 500;
+  gap: 12px;
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--navy);
+}
+
+.btn-primary {
+  padding: 18px 35px;
   font-size: 14px;
-}
-
-.btn-outline {
-  background-color: transparent;
-  border: 2px solid var(--primary-color);
-  color: var(--primary-color);
-}
-
-.btn-outline:hover {
-  background-color: var(--primary-color);
-  color: var(--white);
+  letter-spacing: 1px;
 }
 
 .image-box img {
-  border-radius: 12px;
-  box-shadow: var(--shadow-main);
+  border-radius: 15px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  width: 100%;
 }
 
 @media (max-width: 992px) {
@@ -108,8 +109,8 @@ p {
     gap: 50px;
   }
   
-  .benefits ul {
-    grid-template-columns: 1fr;
+  .image-box {
+    order: -1;
   }
 }
 </style>
