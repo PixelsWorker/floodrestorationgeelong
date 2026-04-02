@@ -42,7 +42,7 @@ onMounted(() => {
         <a href="tel:0459338998" class="btn btn-emergency">
           <span class="icon">📞</span> Call Now 0459 338 998
         </a>
-        <a href="#contact" class="btn btn-outline">Get a Free Quote</a>
+        <a href="https://floodrestorationgeelong.au/contact" target="_blank" rel="noopener" class="btn btn-outline">Get a Free Quote</a>
       </div>
 
       <div class="hero-badges">

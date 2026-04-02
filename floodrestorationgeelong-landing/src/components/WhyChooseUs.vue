@@ -23,7 +23,7 @@
           </ul>
         </div>
 
-        <a href="/our-works" class="btn btn-outline">Our Work Gallery</a>
+        <a href="https://floodrestorationgeelong.au/our-works" target="_blank" rel="noopener" class="btn btn-outline-dark">Our Work Gallery</a>
       </div>
       <div class="image-box">
         <img 

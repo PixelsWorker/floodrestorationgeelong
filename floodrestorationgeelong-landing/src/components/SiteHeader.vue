@@ -6,6 +6,10 @@ const isMenuOpen = ref(false)
 const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value
 }
+
+const closeMenu = () => {
+  isMenuOpen.value = false
+}
 </script>
 
 <template>
@@ -20,7 +24,7 @@ const toggleMenu = () => {
   <header>
     <div class="container header-inner">
       <div class="logo">
-        <a href="/">
+        <a href="https://floodrestorationgeelong.au/" target="_blank" rel="noopener">
           <img 
             src="https://floodrestorationgeelong.au/wp-content/uploads/2025/10/Logo-1-removebg-preview-300x133.jpg" 
             alt="Flood Restoration Geelong Logo"
@@ -30,16 +34,16 @@ const toggleMenu = () => {
 
       <nav :class="{ 'is-open': isMenuOpen }">
         <ul>
-          <li><a href="/" @click="isMenuOpen = false">Home</a></li>
-          <li><a href="/about" @click="isMenuOpen = false">About</a></li>
-          <li><a href="/emergency-water-restoration-geelong" @click="isMenuOpen = false">Emergency Water Restoration</a></li>
-          <li><a href="/water-damage-repairs-geelong" @click="isMenuOpen = false">Water Damage Repairs</a></li>
-          <li><a href="/contact" @click="isMenuOpen = false">Contact</a></li>
+          <li><a href="https://floodrestorationgeelong.au/" target="_blank" rel="noopener" @click="closeMenu">Home</a></li>
+          <li><a href="https://floodrestorationgeelong.au/about" target="_blank" rel="noopener" @click="closeMenu">About</a></li>
+          <li><a href="https://floodrestorationgeelong.au/emergency-water-restoration-geelong" target="_blank" rel="noopener" @click="closeMenu">Emergency Water Restoration</a></li>
+          <li><a href="https://floodrestorationgeelong.au/water-damage-repairs-geelong" target="_blank" rel="noopener" @click="closeMenu">Water Damage Repairs</a></li>
+          <li><a href="https://floodrestorationgeelong.au/contact" target="_blank" rel="noopener" @click="closeMenu">Contact</a></li>
         </ul>
       </nav>
 
       <div class="cta">
-        <a href="#book" class="btn btn-primary">Book Now</a>
+        <a href="https://floodrestorationgeelong.au/contact" target="_blank" rel="noopener" class="btn btn-primary">Book Now</a>
         <button class="menu-toggle" @click="toggleMenu" aria-label="Toggle Menu">
           <span></span>
           <span></span>
@@ -98,19 +102,14 @@ nav ul {
 }
 
 nav ul li a {
+  font-family: 'Poppins', sans-serif;
   font-weight: 600;
-  color: var(--navy);
   font-size: 15px;
+  color: var(--navy);
 }
 
 nav ul li a:hover {
   color: var(--blue);
-}
-
-.cta {
-  display: flex;
-  align-items: center;
-  gap: 15px;
 }
 
 .menu-toggle {
@@ -120,44 +119,52 @@ nav ul li a:hover {
   background: none;
   border: none;
   cursor: pointer;
+  padding: 5px;
 }
 
 .menu-toggle span {
+  display: block;
   width: 25px;
   height: 2px;
-  background-color: var(--navy);
+  background: var(--navy);
   transition: var(--transition-fast);
 }
 
 @media (max-width: 992px) {
+  .cta .btn {
+    display: none;
+  }
+  
+  .menu-toggle {
+    display: flex;
+  }
+
   nav {
-    position: absolute;
-    top: 100%;
+    position: fixed;
+    top: 100px;
     left: 0;
     width: 100%;
-    background-color: var(--white);
-    padding: 20px;
+    background: var(--white);
+    padding: 40px 24px;
     box-shadow: var(--shadow-main);
-    display: none;
+    transform: translateY(-110%);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   nav.is-open {
-    display: block;
+    transform: translateY(0);
   }
 
   nav ul {
     flex-direction: column;
-    gap: 15px;
+    gap: 20px;
+    text-align: center;
   }
 
-  .menu-toggle {
-    display: flex;
-  }
-}
-
-@media (max-width: 576px) {
-  .topbar {
-    display: none;
+  nav ul li a {
+    font-size: 18px;
+    display: block;
+    padding: 10px 0;
   }
 }
 </style>

@@ -3,42 +3,42 @@ const services = [
   {
     title: 'Emergency Water Damage Restoration',
     image: 'https://floodrestorationgeelong.au/wp-content/uploads/2025/10/carpet-cleaning-4-2-1024x768.webp',
-    link: '/emergency-water-restoration-geelong'
+    link: 'https://floodrestorationgeelong.au/emergency-water-restoration-geelong'
   },
   {
     title: 'Carpet Water Extraction',
     image: 'https://floodrestorationgeelong.au/wp-content/uploads/2025/10/Carpet-cleaning-2-1-1-1024x768.webp',
-    link: '/carpet-water-extraction-geelong'
+    link: 'https://floodrestorationgeelong.au/carpet-water-extraction-geelong'
   },
   {
     title: 'Carpet Drying',
     image: 'https://floodrestorationgeelong.au/wp-content/uploads/2025/10/FLood-Restoration-12-1024x768.webp',
-    link: '/carpet-drying-geelong'
+    link: 'https://floodrestorationgeelong.au/carpet-drying-geelong'
   },
   {
     title: 'Water Damage Restoration',
     image: 'https://floodrestorationgeelong.au/wp-content/uploads/2025/10/IMG-20241127-WA0113-1024x768.webp',
-    link: '/water-damage-restoration-geelong'
+    link: 'https://floodrestorationgeelong.au/water-damage-restoration-geelong'
   },
   {
     title: 'Water Damage Repairs',
     image: 'https://floodrestorationgeelong.au/wp-content/uploads/2026/01/flood-damage-water-extraction-processing-geelong.webp',
-    link: '/water-damage-repairs-geelong'
+    link: 'https://floodrestorationgeelong.au/water-damage-repairs-geelong'
   },
   {
     title: 'Mould Remediation',
     image: 'https://floodrestorationgeelong.au/wp-content/uploads/2026/01/professional-mould-remediation-geelong.webp',
-    link: '/mould-remediation-geelong'
+    link: 'https://floodrestorationgeelong.au/mould-remediation-geelong'
   },
   {
     title: 'Flood Restoration',
     image: 'https://floodrestorationgeelong.au/wp-content/uploads/2025/10/Flood-Restoration-2-1024x768.webp',
-    link: '/flood-damage-restoration-geelong'
+    link: 'https://floodrestorationgeelong.au/flood-damage-restoration-geelong'
   },
   {
     title: 'Burst Pipe Restoration',
     image: 'https://floodrestorationgeelong.au/wp-content/uploads/2026/01/burst-pipe-water-damage-restoration-geelong.webp',
-    link: '/burst-pipes-geelong'
+    link: 'https://floodrestorationgeelong.au/burst-pipes-geelong'
   }
 ]
 </script>
@@ -56,11 +56,11 @@ const services = [
           <div class="card-image">
             <img :src="service.image" :alt="service.title" />
             <div class="overlay">
-              <a :href="service.link" class="btn btn-sm">View Service</a>
+              <a :href="service.link" target="_blank" rel="noopener" class="btn btn-sm">View Service</a>
             </div>
           </div>
           <div class="card-body">
-            <h3><a :href="service.link">{{ service.title }}</a></h3>
+            <h3><a :href="service.link" target="_blank" rel="noopener">{{ service.title }}</a></h3>
           </div>
         </div>
       </div>
@@ -80,14 +80,14 @@ const services = [
 
 .section-title h2 {
   font-size: 36px;
-  color: var(--secondary-color);
+  color: var(--navy);
   margin-bottom: 15px;
 }
 
 .divider {
   width: 80px;
   height: 4px;
-  background-color: var(--primary-color);
+  background-color: var(--blue);
   margin: 0 auto;
 }
 
@@ -152,17 +152,14 @@ const services = [
 
 .card-body h3 {
   font-size: 18px;
-  color: var(--secondary-color);
+  color: var(--navy);
 }
 
 .card-body h3 a:hover {
-  color: var(--primary-color);
+  color: var(--blue);
 }
 
-.btn-sm {
-  padding: 8px 20px;
-  font-size: 14px;
-}
+/* btn-sm is now in main.css */
 
 @media (max-width: 1200px) {
   .services-grid {
