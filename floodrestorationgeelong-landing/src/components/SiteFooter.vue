@@ -188,7 +188,6 @@ ul li a:hover {
 .iicrc-logo img {
   height: 60px;
   width: auto;
-  filter: brightness(1.1);
 }
 
 .footer-bottom {

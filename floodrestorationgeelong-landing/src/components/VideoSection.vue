@@ -1,22 +1,28 @@
 <script setup>
-const videos = [
+import { ref } from 'vue'
+
+const videos = ref([
   {
     id: '3MpcsgzQGE0',
     title: 'Flood Restoration in Office',
+    playing: false
   },
   {
     id: 'ub6Bk-nlje8',
     title: 'Water Damage Restoration',
+    playing: false
   },
   {
     id: 'ZOd4APGKdH0',
     title: 'Flood Damage Restoration',
+    playing: false
   },
   {
     id: 'p2jKh8yj160',
     title: 'Emergency Water Damage',
+    playing: false
   }
-]
+])
 </script>
 
 <template>
@@ -31,8 +37,19 @@ const videos = [
       <div class="video-grid">
         <div v-for="video in videos" :key="video.id" class="video-card">
           <div class="video-wrapper">
+            <div v-if="!video.playing" class="video-facade" @click="video.playing = true">
+              <img 
+                :src="`https://img.youtube.com/vi/${video.id}/hqdefault.jpg`" 
+                :alt="video.title" 
+                class="video-thumb"
+              />
+              <div class="play-button">
+                <svg viewBox="0 0 140 140" width="60"><circle cx="70" cy="70" r="65" fill="rgba(0,0,0,0.5)"/><polygon points="50,40 100,70 50,100" fill="white"/></svg>
+              </div>
+            </div>
             <iframe 
-              :src="`https://www.youtube-nocookie.com/embed/${video.id}`" 
+              v-else
+              :src="`https://www.youtube-nocookie.com/embed/${video.id}?autoplay=1`" 
               title="YouTube video player" 
               frameborder="0" 
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
@@ -79,12 +96,42 @@ const videos = [
   overflow: hidden;
 }
 
-.video-wrapper iframe {
+.video-wrapper iframe, .video-facade {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+}
+
+.video-facade {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000;
+}
+
+.video-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+
+.video-facade:hover .video-thumb {
+  opacity: 1;
+}
+
+.play-button {
+  position: absolute;
+  z-index: 2;
+  transition: transform 0.3s;
+}
+
+.video-facade:hover .play-button {
+  transform: scale(1.1);
 }
 
 .video-info {

@@ -10,6 +10,10 @@ const toggleMenu = () => {
 const closeMenu = () => {
   isMenuOpen.value = false
 }
+
+const toggleSubmenu = (e) => {
+  e.currentTarget.parentElement.classList.toggle('is-active')
+}
 </script>
 
 <template>
@@ -53,7 +57,7 @@ const closeMenu = () => {
           <li><a href="https://floodrestorationgeelong.au/emergency-water-restoration-geelong" @click="closeMenu">Emergency Water Restoration</a></li>
           <li><a href="https://floodrestorationgeelong.au/water-damage-repairs-geelong" @click="closeMenu">Water Damage Repairs</a></li>
           <li class="has-submenu">
-            <a href="#" @click.prevent>Services <span class="arrow">▼</span></a>
+            <a href="#" @click.prevent="toggleSubmenu">Services <span class="arrow">▼</span></a>
             <ul class="submenu">
               <li><a href="https://floodrestorationgeelong.au/carpet-drying-geelong" @click="closeMenu">Carpet Drying</a></li>
               <li><a href="https://floodrestorationgeelong.au/carpet-water-extraction-geelong" @click="closeMenu">Carpet Water Extraction</a></li>
@@ -243,6 +247,10 @@ nav ul li a:hover {
   background: var(--navy);
   transform: translateY(-2px);
   box-shadow: 0 4px 10px rgba(227, 30, 36, 0.2);
+}
+
+.close-menu {
+  display: none;
 }
 
 .menu-toggle {

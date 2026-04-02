@@ -1,10 +1,11 @@
 <script setup>
 const suburbs = [
-  'Belmont', 'Highton', 'Armstrong Creek', 'Charlemont', 'Marshall', 'Corio', 'Leopold', 'Newcomb', 'Waurnponds', 'Moolap',
-  'Geelong', 'South Geelong', 'North Geelong', 'Mount Duneed', 'Wallington', 'Gheringhap', 'Breamlea', 'Anglesea', 'Ocean Grove', 'Barwon Heads',
-  'Queenscliff', 'Portarlington', 'Point Lonsdale', 'Bellarine', 'Drumcondra', 'Rippleside', 'Curlewis', 'Clifton Springs', 'Lethbridge', 'Drysdale',
-  'Ceres', 'Newtown', 'Breakwater', 'Norlane', 'Lovely Banks', 'East Geelong', 'Whittington', 'Torquay', 'Grovedale', 'Geelong West',
-  'Wandana Heights', 'Meredith', 'She Oaks', 'Sutherlands Creek', 'Maude', 'Stieglitz', 'Anakie', 'St Albans Park', 'Lara', 'Little River'
+  'Anakie', 'Anglesea', 'Armstrong Creek', 'Bannockburn', 'Barwon Heads', 'Batesford', 'Bellarine', 'Bell Post Hill', 'Belmont', 'Breakwater',
+  'Breamlea', 'Ceres', 'Charlemont', 'Clifton Springs', 'Corio', 'Curlewis', 'Drumcondra', 'Drysdale', 'East Geelong', 'Fyansford',
+  'Geelong', 'Geelong West', 'Gheringhap', 'Golden Plains', 'Grovedale', 'Hamlyn Heights', 'Herne Hill', 'Highton', 'Lara', 'Leopold',
+  'Lethbridge', 'Little River', 'Lovely Banks', 'Marshall', 'Maude', 'Meredith', 'Moolap', 'Mount Duneed', 'Newcomb', 'Newtown',
+  'Norlane', 'North Geelong', 'Northshore', 'Ocean Grove', 'Point Lonsdale', 'Portarlington', 'Queenscliff', 'Rippleside', 'She Oaks', 'South Geelong',
+  'St Albans Park', 'Stieglitz', 'Sutherlands Creek', 'Torquay', 'Wallington', 'Wandana Heights', 'Waurnponds', 'Whittington'
 ]
 </script>
 
@@ -45,19 +46,20 @@ const suburbs = [
 
 .suburbs-grid {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 15px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px 20px;
   margin-bottom: 60px;
 }
 
 .suburb-item {
-  font-size: 14px;
+  font-size: 15px;
   color: var(--blue);
   font-weight: 600;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   transition: var(--transition-fast);
+  padding: 4px 0;
 }
 
 .suburb-item:hover {
@@ -66,8 +68,8 @@ const suburbs = [
 }
 
 .dot {
-  font-size: 12px;
-  opacity: 0.8;
+  font-size: 14px;
+  opacity: 0.9;
 }
 
 .map-container {
@@ -77,21 +79,21 @@ const suburbs = [
   border: 1px solid var(--border);
 }
 
-@media (max-width: 1200px) {
-  .suburbs-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-@media (max-width: 900px) {
+@media (max-width: 992px) {
   .suburbs-grid {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .suburbs-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .suburbs-grid {
+    grid-template-columns: repeat(1, 1fr);
   }
 }
 </style>

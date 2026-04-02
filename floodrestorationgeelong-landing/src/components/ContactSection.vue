@@ -25,16 +25,21 @@
 
         <div class="contact-cta">
           <div class="cta-card">
-            <h3>Get a Professional Quote</h3>
-            <p>Our experts are standing by. Click below to reach our main contact portal and request a free, no-obligation quote today.</p>
-            <a 
-              href="https://floodrestorationgeelong.au/contact" 
-              target="_blank" 
-              rel="noopener" 
-              class="btn btn-full"
-            >
-              Send Message
-            </a>
+            <h3>Emergency? Call Us Now</h3>
+            <p>Our restoration experts are available 24/7. Click below for immediate assistance.</p>
+            <div class="cta-buttons">
+              <a href="tel:0459338998" class="btn btn-full btn-call">
+                <span class="icon">📞</span> Call 0459 338 998
+              </a>
+              <a 
+                href="https://floodrestorationgeelong.au/contact" 
+                target="_blank" 
+                rel="noopener" 
+                class="btn btn-outline btn-full"
+              >
+                Send Message
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -110,15 +115,42 @@
 }
 
 .cta-card h3 {
-  font-size: 22px;
+  font-size: 24px;
   margin-bottom: 15px;
   color: var(--navy);
 }
 
 .cta-card p {
   color: var(--text-mid);
-  margin-bottom: 25px;
-  font-size: 15px;
+  margin-bottom: 30px;
+  font-size: 16px;
+}
+
+.cta-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.btn-call {
+  background-color: var(--red);
+  font-size: 18px;
+  padding: 18px;
+}
+
+.btn-call:hover {
+  background-color: var(--navy);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid var(--blue);
+  color: var(--blue);
+}
+
+.btn-outline:hover {
+  background: var(--blue);
+  color: var(--white);
 }
 
 @media (max-width: 768px) {

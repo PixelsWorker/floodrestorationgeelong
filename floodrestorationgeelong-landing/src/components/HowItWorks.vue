@@ -1,31 +1,49 @@
 <script setup>
+import { ref } from 'vue'
+
 const steps = [
   {
-    title: '1. Detailed Inspection and Damage Assessment',
-    content: 'Every successful restoration begins with a comprehensive inspection. Our technicians assess the full extent of the flood or water damage, identify hidden moisture, and create a customised restoration plan tailored to your property.',
-    tip: 'Take photos before we arrive — it helps with documentation and insurance claims.'
+    title: 'Emergency Contact & Rapid Despatch (Your First Call)',
+    content: 'The moment you contact us, our process starts. Our friendly, knowledgeable team will ask a few key questions to understand the situation (e.g., the source of the water, the areas affected). We will then immediately deploy our nearest emergency response team to your location.',
+    isOpen: true
   },
   {
-    title: '2. Fast and Efficient Water Removal',
-    content: 'The next critical stage is water extraction. Using high-powered truck-mounted equipment, we remove standing water quickly and efficiently. This rapid response reduces further damage to floors, walls, and furniture.',
-    tip: null
+    title: 'On-Site Inspection & Damage Assessment',
+    content: 'Upon arrival, our lead technician will perform a comprehensive inspection. Using advanced moisture detection tools, we will assess the full extent of water damage, including areas with hidden moisture. We classify the water as Category 1, 2, or 3 to determine the appropriate sanitisation steps and create a detailed restoration plan.',
+    isOpen: false
   },
   {
-    title: '3. Advanced Drying and Dehumidification',
-    content: 'Once the visible water is gone, we move on to thorough drying and dehumidification. Even when surfaces appear dry, moisture often lingers deep within walls, floors, and ceilings.',
-    tip: null
+    title: 'Rapid Water Extraction',
+    content: 'This is the most critical step to prevent further damage. Using our powerful extraction equipment, we will remove thousands of litres of standing water from your property. This immediate removal is crucial for saving carpets, underlay, and subflooring.',
+    isOpen: false
   },
   {
-    title: '4. Cleaning, Sanitising & Mould Prevention',
-    content: 'After drying, we clean and sanitise every affected surface, restoring hygiene and freshness to your property. Our team disinfects walls, flooring, and furniture using eco-friendly antimicrobial cleaning solutions.',
-    tip: null
+    title: 'Removal of Non-Salvageable Items & Debris',
+    content: 'Our team will carefully remove any items or building materials (like saturated plasterboard or carpet underlay) that are deemed non-salvageable according to IICRC standards. This helps expedite the drying process and ensures a clean, safe environment.',
+    isOpen: false
   },
   {
-    title: '5. Final Restoration & Quality Check',
-    content: 'In the final stage, we complete a thorough property restoration, ensuring everything is safe, clean, and restored to pre-damage condition.',
-    tip: null
+    title: 'Structural Drying & Dehumidification',
+    content: 'Once the bulk water is gone, we strategically place our industrial air movers and LGR dehumidifiers. This creates an optimal drying environment, pulling moisture from porous materials like wood, drywall, and concrete. This is not just about drying the surface; it’s about returning the entire structure to its normal equilibrium moisture content.',
+    isOpen: false
+  },
+  {
+    title: 'Cleaning, Sanitising & Odour Control',
+    content: 'Water damage can leave behind contaminants and unpleasant odours. We conduct a thorough cleaning of all affected surfaces. Depending on the water category, we apply professional antimicrobial treatments to prevent mould growth and utilise specialised equipment such as hydroxyl generators or thermal foggers to remove any lingering odours.',
+    isOpen: false
+  },
+  {
+    title: 'Continuous Monitoring & Final Inspections',
+    content: 'Our job isn’t finished when the equipment is placed. Our technicians will return to your property regularly to monitor the drying process, taking moisture readings and adjusting equipment as needed to ensure optimal results. Once we certify that your property is completely dry according to IICRC standards, we conduct a final walkthrough with you.',
+    isOpen: false
   }
 ]
+
+const activeIndex = ref(0)
+
+const toggleStep = (index) => {
+  activeIndex.value = activeIndex.value === index ? null : index
+}
 </script>
 
 <template>
@@ -34,17 +52,40 @@ const steps = [
       <div class="section-header">
         <h2 class="section-title">Our IICRC-Certified Flood Restoration Process:</h2>
         <h3 class="process-subtitle">A Step-by-Step Guide to Recovery</h3>
-        <p class="section-subtitle">We value transparency. Knowing what to expect can greatly lessen stress during a crisis.</p>
+        <p class="section-subtitle">We value transparency. Knowing what to expect can greatly lessen stress during a crisis. Here is the proven, step-by-step process our qualified technicians adhere to on every job.</p>
       </div>
 
-      <div class="process-grid">
-        <div v-for="(step, index) in steps" :key="index" class="step-card">
-          <div class="step-num">{{ index + 1 }}</div>
-          <div class="step-content">
-            <h4>{{ step.title }}</h4>
-            <p>{{ step.content }}</p>
-            <div v-if="step.tip" class="step-tip">
-              <strong>Pro tip:</strong> {{ step.tip }}
+      <div class="process-content">
+        <div class="accordion-column">
+          <div 
+            v-for="(step, index) in steps" 
+            :key="index" 
+            class="accordion-item"
+            :class="{ 'is-active': activeIndex === index }"
+          >
+            <button class="accordion-header" @click="toggleStep(index)">
+              <span class="step-title">{{ step.title }}</span>
+              <span class="icon">
+                <svg v-if="activeIndex === index" viewBox="0 0 448 512" width="14"><path fill="currentColor" d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"/></svg>
+                <svg v-else viewBox="0 0 448 512" width="14"><path fill="currentColor" d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32zM416 208v32h-384v-32h384z"/></svg>
+              </span>
+            </button>
+            <div class="accordion-body">
+              <div class="accordion-inner">
+                <p>{{ step.content }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="image-column">
+          <div class="featured-image">
+            <img 
+              src="https://floodrestorationgeelong.au/wp-content/uploads/2025/11/WhatsApp-Image-2025-11-05-at-12.39.42-PM-768x1024.jpeg" 
+              alt="Professional Flood Restoration in Progress"
+            />
+            <div class="image-overlay">
+              <span class="badge">Professional Quality</span>
             </div>
           </div>
         </div>
@@ -66,75 +107,132 @@ const steps = [
   font-weight: 700;
 }
 
-.process-grid {
-  max-width: 1000px;
-  margin: 0 auto;
+.process-content {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.accordion-column {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 15px;
 }
 
-.step-card {
+.accordion-item {
+  border: 1px solid #eee;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.accordion-item.is-active {
+  border-color: var(--blue);
+  box-shadow: 0 5px 20px rgba(0, 119, 204, 0.08);
+}
+
+.accordion-header {
+  width: 100%;
   display: flex;
-  gap: 30px;
-  background: var(--bg-accent);
-  padding: 40px;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 119, 204, 0.05);
-  transition: var(--transition-fast);
-  align-items: flex-start;
-}
-
-.step-card:hover {
-  transform: translateX(10px);
-  background: var(--white);
-  box-shadow: var(--shadow-main);
-}
-
-.step-num {
-  flex-shrink: 0;
-  width: 50px;
-  height: 50px;
-  background: var(--blue);
-  color: var(--white);
-  border-radius: 50%;
-  display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: 24px;
-  font-weight: 800;
-  margin-top: -5px;
+  padding: 22px 25px;
+  background: var(--bg-accent);
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.3s;
 }
 
-.step-content h4 {
-  font-size: 20px;
+.accordion-item.is-active .accordion-header {
+  background: var(--white);
+}
+
+.step-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
   color: var(--navy);
-  margin-bottom: 12px;
 }
 
-.step-content p {
-  color: var(--text-mid);
-  line-height: 1.8;
-  font-size: 15px;
-}
-
-.step-tip {
-  margin-top: 20px;
-  padding: 12px 18px;
-  background: rgba(0, 119, 204, 0.08);
-  border-radius: 6px;
-  font-size: 14px;
+.accordion-item.is-active .step-title {
   color: var(--blue);
 }
 
-@media (max-width: 768px) {
-  .step-card {
-    flex-direction: column;
-    padding: 30px;
+.accordion-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.accordion-item.is-active .accordion-body {
+  max-height: 500px;
+}
+
+.accordion-inner {
+  padding: 0 25px 25px;
+  font-size: 15px;
+  color: var(--text-mid);
+  line-height: 1.8;
+}
+
+.featured-image {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow-main);
+}
+
+.featured-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.image-overlay {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}
+
+.badge {
+  background: var(--blue);
+  color: var(--white);
+  padding: 8px 15px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+@media (max-width: 1100px) {
+  .process-content {
+    grid-template-columns: 1fr;
+    gap: 50px;
   }
   
-  .step-num {
-    margin-top: 0;
+  .image-column {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .how-it-works {
+    padding: 60px 0;
+  }
+  
+  .process-subtitle {
+    font-size: 22px;
+  }
+  
+  .accordion-header {
+    padding: 18px 20px;
+  }
+  
+  .step-title {
+    font-size: 15px;
   }
 }
 </style>
