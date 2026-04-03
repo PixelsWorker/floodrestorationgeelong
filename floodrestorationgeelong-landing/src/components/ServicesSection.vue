@@ -160,13 +160,44 @@ const services = [
   color: var(--blue);
 }
 
+@media (max-width: 1100px) {
+  .services-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 992px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  .card-image {
+    height: 200px;
+  }
+}
+
 @media (max-width: 768px) {
   .services {
     padding: 60px 0;
   }
-  .services-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
+  .section-header {
+    margin-bottom: 40px;
   }
 }
+
+@media (max-width: 768px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+  .card-image {
+    height: 240px;
+  }
+  .card-body {
+    padding: 20px;
+  }
+  .card-body h3 {
+    font-size: 16px;
+  }
+}
+
 </style>

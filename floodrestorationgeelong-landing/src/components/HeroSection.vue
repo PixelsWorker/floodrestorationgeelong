@@ -1,5 +1,7 @@
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, inject } from 'vue'
+
+const openQuoteModal = inject('openQuoteModal')
 
 const slides = [
   'https://floodrestorationgeelong.au/wp-content/uploads/2026/01/flood-restoration-geelong-van-residential-property-equipment.webp',
@@ -43,7 +45,7 @@ onMounted(() => {
           <a href="tel:0459338998" class="btn btn-emergency">
             <span class="icon">📞</span> CALL US 0459 338 998
           </a>
-          <a href="https://floodrestorationgeelong.au/contact" target="_blank" rel="noopener" class="btn btn-outline">Get a Free Quote</a>
+          <a href="#" class="btn btn-outline" @click.prevent="openQuoteModal">Get a Quote</a>
         </div>
 
         <div class="hero-badges">
@@ -107,9 +109,9 @@ onMounted(() => {
   text-align: left;
 }
 
-.hero-title {
-  font-size: clamp(32px, 5.5vw, 60px);
-  line-height: 1.1;
+  .hero-title {
+  font-size: clamp(26px, 7vw, 56px);
+  line-height: 1.15;
   margin-bottom: 24px;
   color: var(--white);
   font-weight: 800;
@@ -117,8 +119,8 @@ onMounted(() => {
 }
 
 .hero-description {
-  font-size: clamp(16px, 1.8vw, 20px);
-  margin-bottom: 40px;
+  font-size: clamp(15px, 2vw, 19px);
+  margin-bottom: 35px;
   max-width: 750px;
   opacity: 0.95;
   color: var(--white);
@@ -129,7 +131,7 @@ onMounted(() => {
   display: flex;
   flex-wrap: wrap;
   gap: 15px;
-  margin-bottom: 40px;
+  margin-bottom: 35px;
 }
 
 .btn-emergency {
@@ -141,27 +143,31 @@ onMounted(() => {
 .hero-badges {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 10px;
 }
 
 .badge {
   background: rgba(255, 255, 255, 0.12);
   border: 1px solid rgba(255, 255, 255, 0.25);
   color: rgba(255, 255, 255, 0.95);
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 600;
-  padding: 8px 16px;
+  padding: 6px 14px;
   border-radius: 50px;
 }
 
 @media (max-width: 992px) {
   .hero {
     min-height: auto;
-    padding: 100px 0;
+    padding: 80px 0;
   }
 }
 
 @media (max-width: 768px) {
+  .hero {
+    padding: 60px 0 80px;
+  }
+
   .content-left {
     text-align: center;
   }
@@ -169,5 +175,26 @@ onMounted(() => {
   .hero-btns, .hero-badges {
     justify-content: center;
   }
+  
+  .hero-btns {
+    flex-direction: column;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto 35px;
+  }
+
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .hero-title {
+    margin-bottom: 20px;
+  }
+  
+  .hero-description {
+    margin-bottom: 30px;
+  }
 }
+
 </style>

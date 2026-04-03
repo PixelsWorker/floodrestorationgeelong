@@ -61,6 +61,11 @@ const videos = ref([
           </div>
         </div>
       </div>
+      <div class="video-cta">
+        <a href="https://floodrestorationgeelong.au/our-works" target="_blank" rel="noopener" class="btn btn-primary highlight-btn">
+          OUR FLOOD RESTORATION WORK GALLERY
+        </a>
+      </div>
     </div>
   </section>
 </template>
@@ -152,5 +157,35 @@ const videos = ref([
   .video-showcase {
     padding: 60px 0;
   }
+}
+
+.video-cta {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+.highlight-btn {
+  padding: 20px 45px;
+  font-size: 16px;
+  background: var(--navy);
+  border-color: var(--navy);
+  box-shadow: 0 10px 20px rgba(27, 50, 82, 0.15);
+}
+
+.highlight-btn:hover {
+  background: var(--blue);
+  border-color: var(--blue);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 15px 30px rgba(0, 124, 190, 0.25);
+}
+
+.btn-icon {
+  margin-left: 10px;
+  transition: transform 0.3s;
+}
+
+.highlight-btn:hover .btn-icon {
+  transform: translateX(5px);
 }
 </style>
