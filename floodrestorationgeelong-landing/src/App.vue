@@ -1,17 +1,19 @@
 <script setup>
-import { ref, provide } from 'vue'
+import { ref, provide, defineAsyncComponent } from 'vue'
 import SiteHeader from './components/SiteHeader.vue'
 import HeroSection from './components/HeroSection.vue'
-import ServicesSection from './components/ServicesSection.vue'
-import TrustBar from './components/TrustBar.vue'
-import HowItWorks from './components/HowItWorks.vue'
-import VideoSection from './components/VideoSection.vue'
-import EmergencyBanner from './components/EmergencyBanner.vue'
-import TestimonialsSection from './components/TestimonialsSection.vue'
-import FaqSection from './components/FaqSection.vue'
-import ContactSection from './components/ContactSection.vue'
-import SiteFooter from './components/SiteFooter.vue'
-import QuoteModal from './components/QuoteModal.vue'
+
+// Below-fold components - Lazy Loaded
+const ServicesSection = defineAsyncComponent(() => import('./components/ServicesSection.vue'))
+const TrustBar = defineAsyncComponent(() => import('./components/TrustBar.vue'))
+const HowItWorks = defineAsyncComponent(() => import('./components/HowItWorks.vue'))
+const VideoSection = defineAsyncComponent(() => import('./components/VideoSection.vue'))
+const EmergencyBanner = defineAsyncComponent(() => import('./components/EmergencyBanner.vue'))
+const TestimonialsSection = defineAsyncComponent(() => import('./components/TestimonialsSection.vue'))
+const FaqSection = defineAsyncComponent(() => import('./components/FaqSection.vue'))
+const ContactSection = defineAsyncComponent(() => import('./components/ContactSection.vue'))
+const SiteFooter = defineAsyncComponent(() => import('./components/SiteFooter.vue'))
+const QuoteModal = defineAsyncComponent(() => import('./components/QuoteModal.vue'))
 
 const isQuoteModalOpen = ref(false)
 
