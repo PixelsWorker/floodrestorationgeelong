@@ -2,42 +2,50 @@
 const services = [
   {
     title: 'Emergency Water Damage Restoration',
-    image: 'https://floodrestorationgeelong.au/wp-content/uploads/2025/10/carpet-cleaning-4-2-400x300.webp',
+    src: 'https://floodrestorationgeelong.au/wp-content/uploads/2025/10/carpet-cleaning-4-2-300x225.webp',
+    srcset: 'https://floodrestorationgeelong.au/wp-content/uploads/2025/10/carpet-cleaning-4-2-300x225.webp 300w, https://floodrestorationgeelong.au/wp-content/uploads/2025/10/carpet-cleaning-4-2-768x576.webp 768w, https://floodrestorationgeelong.au/wp-content/uploads/2025/10/carpet-cleaning-4-2-1024x768.webp 1024w',
     link: 'https://floodrestorationgeelong.au/emergency-water-restoration-geelong'
   },
   {
     title: 'Carpet Water Extraction',
-    image: 'https://floodrestorationgeelong.au/wp-content/uploads/2025/10/Carpet-cleaning-2-1-1-400x300.webp',
+    src: 'https://floodrestorationgeelong.au/wp-content/uploads/2025/10/Carpet-cleaning-2-1-1-300x225.webp',
+    srcset: 'https://floodrestorationgeelong.au/wp-content/uploads/2025/10/Carpet-cleaning-2-1-1-300x225.webp 300w, https://floodrestorationgeelong.au/wp-content/uploads/2025/10/Carpet-cleaning-2-1-1-768x576.webp 768w, https://floodrestorationgeelong.au/wp-content/uploads/2025/10/Carpet-cleaning-2-1-1-1024x768.webp 1024w',
     link: 'https://floodrestorationgeelong.au/carpet-water-extraction-geelong'
   },
   {
     title: 'Carpet Drying',
-    image: 'https://floodrestorationgeelong.au/wp-content/uploads/2025/10/FLood-Restoration-12-1024x768.webp',
+    src: 'https://floodrestorationgeelong.au/wp-content/uploads/2025/10/FLood-Restoration-12-300x225.webp',
+    srcset: 'https://floodrestorationgeelong.au/wp-content/uploads/2025/10/FLood-Restoration-12-300x225.webp 300w, https://floodrestorationgeelong.au/wp-content/uploads/2025/10/FLood-Restoration-12-768x576.webp 768w, https://floodrestorationgeelong.au/wp-content/uploads/2025/10/FLood-Restoration-12-1024x768.webp 1024w',
     link: 'https://floodrestorationgeelong.au/carpet-drying-geelong'
   },
   {
     title: 'Water Damage Restoration',
-    image: 'https://floodrestorationgeelong.au/wp-content/uploads/2025/10/IMG-20241127-WA0113-1024x768.webp',
+    src: 'https://floodrestorationgeelong.au/wp-content/uploads/2025/10/IMG-20241127-WA0113-300x225.webp',
+    srcset: 'https://floodrestorationgeelong.au/wp-content/uploads/2025/10/IMG-20241127-WA0113-300x225.webp 300w, https://floodrestorationgeelong.au/wp-content/uploads/2025/10/IMG-20241127-WA0113-768x576.webp 768w, https://floodrestorationgeelong.au/wp-content/uploads/2025/10/IMG-20241127-WA0113-1024x768.webp 1024w',
     link: 'https://floodrestorationgeelong.au/water-damage-restoration-geelong'
   },
   {
     title: 'Water Damage Repairs',
-    image: 'https://floodrestorationgeelong.au/wp-content/uploads/2026/01/flood-damage-water-extraction-processing-geelong.webp',
+    src: 'https://floodrestorationgeelong.au/wp-content/uploads/2026/01/flood-damage-water-extraction-processing-geelong-300x225.webp',
+    srcset: 'https://floodrestorationgeelong.au/wp-content/uploads/2026/01/flood-damage-water-extraction-processing-geelong-300x225.webp 300w, https://floodrestorationgeelong.au/wp-content/uploads/2026/01/flood-damage-water-extraction-processing-geelong-768x576.webp 768w, https://floodrestorationgeelong.au/wp-content/uploads/2026/01/flood-damage-water-extraction-processing-geelong.webp 1024w',
     link: 'https://floodrestorationgeelong.au/water-damage-repairs-geelong'
   },
   {
     title: 'Mould Remediation',
-    image: 'https://floodrestorationgeelong.au/wp-content/uploads/2026/01/professional-mould-remediation-geelong.webp',
+    src: 'https://floodrestorationgeelong.au/wp-content/uploads/2026/01/professional-mould-remediation-geelong-225x300.webp',
+    srcset: 'https://floodrestorationgeelong.au/wp-content/uploads/2026/01/professional-mould-remediation-geelong-225x300.webp 225w, https://floodrestorationgeelong.au/wp-content/uploads/2026/01/professional-mould-remediation-geelong.webp 768w',
     link: 'https://floodrestorationgeelong.au/mould-remediation-geelong'
   },
   {
     title: 'Flood Restoration',
-    image: 'https://floodrestorationgeelong.au/wp-content/uploads/2025/10/Flood-Restoration-2-1024x768.webp',
+    src: 'https://floodrestorationgeelong.au/wp-content/uploads/2025/10/Flood-Restoration-2-300x225.webp',
+    srcset: 'https://floodrestorationgeelong.au/wp-content/uploads/2025/10/Flood-Restoration-2-300x225.webp 300w, https://floodrestorationgeelong.au/wp-content/uploads/2025/10/Flood-Restoration-2-768x576.webp 768w, https://floodrestorationgeelong.au/wp-content/uploads/2025/10/Flood-Restoration-2-1024x768.webp 1024w',
     link: 'https://floodrestorationgeelong.au/flood-damage-restoration-geelong'
   },
   {
     title: 'Burst Pipe Restoration',
-    image: 'https://floodrestorationgeelong.au/wp-content/uploads/2026/01/burst-pipe-water-damage-restoration-geelong.webp',
+    src: 'https://floodrestorationgeelong.au/wp-content/uploads/2026/01/burst-pipe-water-damage-restoration-geelong-300x225.webp',
+    srcset: 'https://floodrestorationgeelong.au/wp-content/uploads/2026/01/burst-pipe-water-damage-restoration-geelong-300x225.webp 300w, https://floodrestorationgeelong.au/wp-content/uploads/2026/01/burst-pipe-water-damage-restoration-geelong-768x576.webp 768w, https://floodrestorationgeelong.au/wp-content/uploads/2026/01/burst-pipe-water-damage-restoration-geelong.webp 1024w',
     link: 'https://floodrestorationgeelong.au/burst-pipes-geelong'
   }
 ]
@@ -62,14 +70,14 @@ const services = [
         <div v-for="(service, index) in services" :key="index" class="service-card">
           <div class="card-image">
             <img 
-              :src="service.image" 
-              :srcset="`${service.image.replace('-1024x768.webp', '-576x576.webp').replace('-400x300.webp', '-400x300.webp')} 400w, ${service.image.replace('-400x300.webp', '-768x576.webp').replace('-1024x768.webp', '-768x576.webp')} 768w`"
+              :src="service.src" 
+              :srcset="service.srcset"
               sizes="(max-width: 768px) 100vw, (max-width: 1100px) 33vw, 300px"
               :alt="service.title"
               loading="lazy"
               decoding="async"
-              width="800"
-              height="600"
+              width="300"
+              height="225"
             />
             <div class="overlay">
               <a :href="service.link" target="_blank" rel="noopener" class="btn btn-sm btn-primary">View Service</a>

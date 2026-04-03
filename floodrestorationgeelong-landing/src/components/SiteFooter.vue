@@ -61,7 +61,7 @@
           </li>
         </ul>
         <div class="iicrc-logo">
-          <img src="https://floodrestorationgeelong.au/wp-content/uploads/2025/10/iicrc.webp" alt="IICRC Certified" loading="lazy" decoding="async" width="60" height="60" />
+          <img src="https://floodrestorationgeelong.au/wp-content/uploads/2025/10/iicrc-150x150.webp" alt="IICRC Certified" loading="lazy" decoding="async" width="120" height="120" />
         </div>
       </div>
     </div>
