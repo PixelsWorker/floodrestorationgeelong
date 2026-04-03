@@ -2,12 +2,12 @@
 const services = [
   {
     title: 'Emergency Water Damage Restoration',
-    image: 'https://floodrestorationgeelong.au/wp-content/uploads/2025/10/carpet-cleaning-4-2-1024x768.webp',
+    image: 'https://floodrestorationgeelong.au/wp-content/uploads/2025/10/carpet-cleaning-4-2-400x300.webp',
     link: 'https://floodrestorationgeelong.au/emergency-water-restoration-geelong'
   },
   {
     title: 'Carpet Water Extraction',
-    image: 'https://floodrestorationgeelong.au/wp-content/uploads/2025/10/Carpet-cleaning-2-1-1-1024x768.webp',
+    image: 'https://floodrestorationgeelong.au/wp-content/uploads/2025/10/Carpet-cleaning-2-1-1-400x300.webp',
     link: 'https://floodrestorationgeelong.au/carpet-water-extraction-geelong'
   },
   {
@@ -63,7 +63,7 @@ const services = [
           <div class="card-image">
             <img 
               :src="service.image" 
-              :srcset="`${service.image.replace('-1024x768.webp', '-768x576.webp')} 768w, ${service.image} 1024w`"
+              :srcset="`${service.image.replace('-1024x768.webp', '-576x576.webp').replace('-400x300.webp', '-400x300.webp')} 400w, ${service.image.replace('-400x300.webp', '-768x576.webp').replace('-1024x768.webp', '-768x576.webp')} 768w`"
               sizes="(max-width: 768px) 100vw, (max-width: 1100px) 33vw, 300px"
               :alt="service.title"
               loading="lazy"

@@ -5,6 +5,17 @@ const openQuoteModal = inject('openQuoteModal')
 
 <template>
   <section class="emergency-banner">
+    <div class="banner-bg-container">
+      <img 
+        src="https://floodrestorationgeelong.au/wp-content/uploads/2026/01/commercial-flood-recovery-in-progress-geelong.webp" 
+        alt="Commercial Flood Recovery" 
+        class="banner-bg-img"
+        loading="lazy"
+        decoding="async"
+        width="1920"
+        height="600"
+      />
+    </div>
     <div class="banner-overlay"></div>
     <div class="container banner-inner">
       <div class="banner-text">
@@ -29,13 +40,26 @@ const openQuoteModal = inject('openQuoteModal')
 <style scoped>
 .emergency-banner {
   position: relative;
-  background: url('https://floodrestorationgeelong.au/wp-content/uploads/2026/01/commercial-flood-recovery-in-progress-geelong.webp');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
+  background-color: var(--navy);
   color: var(--white);
   padding: 100px 0;
   overflow: hidden;
+}
+
+.banner-bg-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.banner-bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .cta-flex {
