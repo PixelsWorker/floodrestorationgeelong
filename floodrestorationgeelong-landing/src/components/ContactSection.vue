@@ -65,8 +65,8 @@ function resetForm() {
 
         <!-- LEFT: Info -->
         <div class="contact-info">
-          <label class="section-label">Get In Touch</label>
-          <h2 class="contact-title">Contact us</h2>
+          <label class="section-label"></label>
+          <h2 class="contact-title">Get In Touch</h2>
           <p>Available <strong>24/7</strong> for emergency flood and water damage response across Geelong and surrounds.</p>
 
           <div class="info-block">
@@ -483,11 +483,39 @@ a.info-value:hover {
 }
 
 @media (max-width: 768px) {
-  .contact { padding: 70px 0; }
+  .contact { padding: 60px 0; }
+  .contact-grid { gap: 40px; }
+  
+  .contact-info {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .contact-info .section-label {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   .form-row { grid-template-columns: 1fr; }
   .form-card { padding: 25px; }
-  .contact-info h2 { text-align: center; }
-  .contact-info > p { text-align: center; }
-  .info-item { justify-content: center; }
+
+  .contact-info h2,
+  .contact-info > p {
+    text-align: center;
+  }
+
+  .info-block {
+    align-items: center;
+    width: 100%;
+  }
+
+  .info-item {
+    text-align: left;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+  }
 }
 </style>

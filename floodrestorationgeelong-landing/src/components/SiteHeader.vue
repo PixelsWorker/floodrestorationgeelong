@@ -33,7 +33,7 @@ const handleBookClick = (e) => {
       <div class="container top-bar-inner">
         <div class="top-bar-left">
           <a href="tel:0459338998" class="top-info-item">
-            <span class="icon">📞</span> 0459 338 998
+            <span class="icon">📞</span> <span class="phone-number">0459 338 998</span>
           </a>
           <a href="mailto:info@floodrestorationgeelong.au" class="top-info-item hide-mobile">
             <span class="icon">✉️</span> info@floodrestorationgeelong.au
@@ -126,6 +126,11 @@ const handleBookClick = (e) => {
 
 .top-info-item:hover {
   opacity: 0.8;
+}
+
+.phone-number {
+  font-size: 15px;
+  font-weight: 700;
 }
 
 .social-links {
@@ -401,7 +406,12 @@ nav ul li a:hover, .submenu-toggle:hover {
   }
 
   .logo img {
-    height: 45px;
+    height: 55px;
+  }
+
+  .phone-number {
+    font-size: 17px;
+    font-weight: 800;
   }
 }
 

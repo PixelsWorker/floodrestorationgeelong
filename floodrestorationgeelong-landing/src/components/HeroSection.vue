@@ -58,11 +58,17 @@ onMounted(() => {
         </div>
 
         <div class="hero-badges">
-          <div class="badge">✔ IICRC Certified</div>
-          <div class="badge">✔ 20+ Years Experience</div>
-          <div class="badge">✔ Available 24/7</div>
-          <div class="badge">✔ Insurance Assist</div>
+          <div class="badge"><span class="check">✔</span> IICRC Certified</div>
+          <div class="badge"><span class="check">✔</span> 20+ Years Experience</div>
+          <div class="badge"><span class="check">✔</span> Available 24/7</div>
+          <div class="badge"><span class="check">✔</span> Insurance Assist</div>
         </div>
+
+        <div class="hero-urgency">
+          <span class="pulse-icon">⚡</span> 
+          <span>Geelong Technicians On-Site Within <strong>60 Minutes</strong></span>
+        </div>
+
       </div>
     </div>
   </section>
@@ -160,13 +166,59 @@ onMounted(() => {
 }
 
 .badge {
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  color: rgba(255, 255, 255, 0.95);
-  font-size: 12px;
-  font-weight: 600;
-  padding: 6px 14px;
+  background: rgba(0, 124, 190, 0.25);
+  border: 1.5px solid rgba(0, 163, 224, 0.6);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 800;
+  padding: 10px 20px;
   border-radius: 50px;
+  letter-spacing: 0.3px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.check {
+  color: #2ecc71;
+  font-size: 18px;
+}
+
+.hero-urgency {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 25px;
+  padding: 12px 24px;
+  background: rgba(21, 255, 0, 0.136);
+  border: 1px solid rgba(0, 255, 51, 0.4);
+  border-radius: 50px;
+  font-size: 16px;
+  color: #ffffff;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  animation: pulse-glow 2.5s infinite;
+}
+
+.hero-urgency strong {
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+.pulse-icon {
+  font-size: 20px;
+  animation: bounce-slight 2s infinite;
+}
+
+@keyframes pulse-glow {
+  0% { box-shadow: 0 0 0 0 rgba(145, 255, 0, 0.3); }
+  70% { box-shadow: 0 0 0 10px rgba(204, 255, 0, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(187, 255, 0, 0); }
+}
+
+@keyframes bounce-slight {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
 }
 
 @media (max-width: 992px) {
@@ -178,7 +230,7 @@ onMounted(() => {
 
 @media (max-width: 768px) {
   .hero {
-    padding: 60px 0 80px;
+    padding: 50px 0 60px;
   }
 
   .content-left {
@@ -187,6 +239,15 @@ onMounted(() => {
   
   .hero-btns, .hero-badges {
     justify-content: center;
+  }
+
+  .hero-urgency {
+    font-size: 14px;
+    padding: 10px 20px;
+    justify-content: center;
+    width: 100%;
+    max-width: 400px;
+    margin: 15px auto 0;
   }
   
   .hero-btns {
@@ -207,6 +268,14 @@ onMounted(() => {
   
   .hero-description {
     margin-bottom: 30px;
+  }
+
+  .badge {
+    font-size: 14px;
+    font-weight: 800;
+    padding: 10px 20px;
+    border: 2px solid rgba(0, 163, 224, 0.8);
+    background: rgba(0, 124, 190, 0.4);
   }
 }
 
