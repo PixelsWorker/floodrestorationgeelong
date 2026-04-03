@@ -12,8 +12,11 @@ const closeMenu = () => {
   isMenuOpen.value = false
 }
 
-const toggleSubmenu = (e) => {
-  e.currentTarget.parentElement.classList.toggle('is-active')
+const isSubmenuOpen = ref(false)
+
+const toggleSubmenu = () => {
+  console.log('Toggling submenu from', isSubmenuOpen.value, 'to', !isSubmenuOpen.value)
+  isSubmenuOpen.value = !isSubmenuOpen.value
 }
 
 const handleBookClick = (e) => {
@@ -51,16 +54,18 @@ const handleBookClick = (e) => {
         </a>
       </div>
 
-      <nav :class="{ 'is-open': isMenuOpen }">
+      <nav :class="{ 'is-open': isMenuOpen }" @click.stop>
         <button class="close-menu" @click="closeMenu" aria-label="Close Menu">&times;</button>
         <ul>
           <li><a href="https://floodrestorationgeelong.au/" @click="closeMenu">Home</a></li>
           <li><a href="https://floodrestorationgeelong.au/about" @click="closeMenu">About</a></li>
           <li><a href="https://floodrestorationgeelong.au/emergency-water-restoration-geelong" @click="closeMenu">Emergency Water Restoration</a></li>
           <li><a href="https://floodrestorationgeelong.au/water-damage-repairs-geelong" @click="closeMenu">Water Damage Repairs</a></li>
-          <li class="has-submenu">
-            <a href="#" @click.prevent="toggleSubmenu">Services <span class="arrow">▼</span></a>
-            <ul class="submenu">
+          <li class="has-submenu" :class="{ 'is-active': isSubmenuOpen }">
+            <button class="submenu-toggle" @click.stop="toggleSubmenu" type="button">
+              Services <span class="arrow" :style="{ transform: isSubmenuOpen ? 'rotate(180deg)' : 'none' }">▼</span>
+            </button>
+            <ul class="submenu" v-if="isSubmenuOpen">
               <li><a href="https://floodrestorationgeelong.au/carpet-drying-geelong" @click="closeMenu">Carpet Drying</a></li>
               <li><a href="https://floodrestorationgeelong.au/carpet-water-extraction-geelong" @click="closeMenu">Carpet Water Extraction</a></li>
               <li><a href="https://floodrestorationgeelong.au/flood-damage-restoration-geelong" @click="closeMenu">Flood Damage Restoration</a></li>
@@ -163,7 +168,7 @@ nav ul li {
   position: relative;
 }
 
-nav ul li a {
+nav ul li a, .submenu-toggle {
   font-family: 'Poppins', sans-serif;
   font-weight: 600;
   font-size: 14px;
@@ -171,9 +176,13 @@ nav ul li a {
   display: flex;
   align-items: center;
   gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
 }
 
-nav ul li a:hover {
+nav ul li a:hover, .submenu-toggle:hover {
   color: var(--blue);
 }
 
@@ -280,7 +289,6 @@ nav ul li a:hover {
 
 @media (max-width: 992px) {
   .top-bar .hide-mobile { display: none; }
-  
   .btn-book { display: none; }
   .menu-toggle { display: flex; }
 
@@ -290,16 +298,20 @@ nav ul li a:hover {
     right: 0;
     width: 280px;
     height: 100vh;
-    background: var(--white);
-    padding: 80px 25px 60px;
+    background: #ffffff;
+    padding: 80px 20px 40px;
     box-shadow: -10px 0 50px rgba(0,0,0,0.1);
-    transform: translateX(100%);
-    transition: transform 0.4s ease;
-    z-index: 2000;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 2100;
+    overflow-y: auto;
+    -webkit-font-smoothing: antialiased;
+    transform: translateX(100%) translateZ(0);
+    backface-visibility: hidden;
+    border-left: 1px solid #eef2f6;
   }
 
   nav.is-open {
-    transform: translateX(0);
+    transform: translateX(0) translateZ(0);
   }
 
   .close-menu {
@@ -318,12 +330,22 @@ nav ul li a:hover {
 
   nav ul {
     flex-direction: column;
-    gap: 15px;
+    gap: 0;
   }
 
-  nav ul li a {
-    font-size: 16px;
-    padding: 8px 0;
+  nav ul li a, .submenu-toggle {
+    font-size: 14px;
+    font-weight: 700;
+    padding: 14px 0;
+    border-bottom: 1px solid #f0f4f8;
+    width: 100%;
+    color: var(--navy-dark);
+    text-align: left;
+    justify-content: flex-start;
+  }
+  
+  nav ul li:last-child a {
+    border-bottom: none;
   }
 
   .submenu {
@@ -332,12 +354,22 @@ nav ul li a:hover {
     opacity: 1;
     visibility: visible;
     transform: none;
-    padding: 10px 0 10px 15px;
-    display: none;
+    padding: 0 0 0 15px;
+    display: flex;
+    flex-direction: column;
+    background: #fafbfc;
   }
 
-  .has-submenu.is-active .submenu {
+  .submenu-toggle {
     display: flex;
+    justify-content: space-between;
+    width: 100%;
+    background: none;
+  }
+  
+  .arrow {
+    position: static !important;
+    margin-left: auto;
   }
 
   .menu-backdrop {
@@ -346,8 +378,7 @@ nav ul li a:hover {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(7, 26, 48, 0.4);
-    backdrop-filter: blur(2px);
+    background: rgba(0, 0, 0, 0.15);
     z-index: 1500;
   }
 

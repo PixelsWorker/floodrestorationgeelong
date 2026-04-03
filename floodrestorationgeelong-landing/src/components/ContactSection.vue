@@ -1,7 +1,7 @@
 <script setup>
 import { ref, reactive } from 'vue'
 
-const WP_API = 'https://floodrestorationgeelong.au/wp-json/contact-form-7/v1/contact-forms/8345c53/feedback'
+const WP_API = 'https://floodrestorationgeelong.au/wp-json/frg/v1/contact'
 
 const submitted = ref(false)
 const loading = ref(false)
@@ -24,22 +24,21 @@ async function handleSubmit() {
   errorMsg.value = ''
   
   try {
-    const formData = new FormData()
-    formData.append('your-name',     form.name)
-    formData.append('your-phone',    form.phone)
-    formData.append('your-email',    form.email)
-    formData.append('your-suburb',   form.suburb)
-    formData.append('your-postcode', form.postcode)
-    formData.append('your-message',  form.message)
-
     const res = await fetch(WP_API, {
       method: 'POST',
-      body: formData // No headers needed for FormData
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name:    form.name,
+        phone:   form.phone,
+        email:   form.email,
+        suburb:  `${form.suburb}${form.postcode ? ' ' + form.postcode : ''}`,
+        message: form.message
+      })
     })
     
     const data = await res.json()
     
-    if (data.status === 'mail_sent') {
+    if (data.success) {
       submitted.value = true
     } else {
       errorMsg.value = data.message || 'Something went wrong. Please call us directly.'
