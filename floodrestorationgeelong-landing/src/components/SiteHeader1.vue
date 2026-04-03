@@ -11,7 +11,6 @@ const toggleMenu = () => {
 const closeMenu = () => {
   isMenuOpen.value = false
 }
-}
 
 const isSubmenuOpen = ref(false)
 
@@ -27,74 +26,69 @@ const handleBookClick = (e) => {
 </script>
 
 <template>
-  <div class="site-header">
-    <!-- Backdrop inside component root so clicks and stacking behave correctly -->
-    <div v-if="isMenuOpen" class="menu-backdrop" @click="closeMenu"></div>
-
-    <!-- Topbar -->
-    <div class="top-bar">
-      <div class="container top-bar-inner">
-        <div class="top-bar-left">
-          <a href="tel:0459338998" class="top-info-item">
-            <span class="icon">📞</span> 0459 338 998
-          </a>
-          <a href="mailto:info@floodrestorationgeelong.au" class="top-info-item hide-mobile">
-            <span class="icon">✉️</span> info@floodrestorationgeelong.au
-          </a>
-        </div>
-        <div class="top-bar-right">
-        </div>
+  <!-- Topbar -->
+  <div v-if="isMenuOpen" class="menu-backdrop" @click="closeMenu"></div>
+  <div class="top-bar">
+    <div class="container top-bar-inner">
+      <div class="top-bar-left">
+        <a href="tel:0459338998" class="top-info-item">
+          <span class="icon">📞</span> 0459 338 998
+        </a>
+        <a href="mailto:info@floodrestorationgeelong.au" class="top-info-item hide-mobile">
+          <span class="icon">✉️</span> info@floodrestorationgeelong.au
+        </a>
+      </div>
+      <div class="top-bar-right">
       </div>
     </div>
-
-    <header>
-      <div class="container header-inner">
-        <div class="logo">
-          <a href="https://floodrestorationgeelong.au/" target="_blank" rel="noopener">
-            <img 
-              src="https://floodrestorationgeelong.au/wp-content/uploads/2025/10/Logo-1-removebg-preview-300x133.jpg" 
-              alt="Flood Restoration Geelong Logo"
-            />
-          </a>
-        </div>
-
-        <nav :class="{ 'is-open': isMenuOpen }" @click.stop>
-          <button class="close-menu" @click="closeMenu" aria-label="Close Menu">&times;</button>
-          <ul>
-            <li><a href="https://floodrestorationgeelong.au/" @click="closeMenu">Home</a></li>
-            <li><a href="https://floodrestorationgeelong.au/about" @click="closeMenu">About</a></li>
-            <li><a href="https://floodrestorationgeelong.au/emergency-water-restoration-geelong" @click="closeMenu">Emergency Water Restoration</a></li>
-            <li><a href="https://floodrestorationgeelong.au/water-damage-repairs-geelong" @click="closeMenu">Water Damage Repairs</a></li>
-            <li class="has-submenu" :class="{ 'is-active': isSubmenuOpen }">
-              <button class="submenu-toggle" @click.stop="toggleSubmenu" type="button">
-                Services <span class="arrow" :style="{ transform: isSubmenuOpen ? 'rotate(180deg)' : 'none' }">▼</span>
-              </button>
-              <!-- Use v-show instead of v-if so CSS-based transitions/desktop rules don't conflict -->
-              <ul class="submenu" v-show="isSubmenuOpen">
-                <li><a href="https://floodrestorationgeelong.au/carpet-drying-geelong" @click="closeMenu">Carpet Drying</a></li>
-                <li><a href="https://floodrestorationgeelong.au/carpet-water-extraction-geelong" @click="closeMenu">Carpet Water Extraction</a></li>
-                <li><a href="https://floodrestorationgeelong.au/flood-damage-restoration-geelong" @click="closeMenu">Flood Damage Restoration</a></li>
-                <li><a href="https://floodrestorationgeelong.au/mould-remediation-geelong" @click="closeMenu">Mould Remediation</a></li>
-                <li><a href="https://floodrestorationgeelong.au/burst-pipes-geelong" @click="closeMenu">Burst Pipes</a></li>
-              </ul>
-            </li>
-            <li><a href="https://floodrestorationgeelong.au/blogs" @click="closeMenu">Blogs</a></li>
-            <li><a href="https://floodrestorationgeelong.au/contact-flood-restoration-geelong" @click="closeMenu">Contact</a></li>
-          </ul>
-        </nav>
-
-        <div class="cta-group">
-          <a href="tel:0459338998" class="mobile-call-btn" aria-label="Call Now">📞</a>
-          <a href="https://floodrestorationgeelong.au/contact" class="btn-book" @click="handleBookClick">Book Now</a>
-          <button class="menu-toggle" @click="toggleMenu" aria-label="Toggle Menu">
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
-        </div>
-      </div>
-    </header>
   </div>
+
+  <header>
+    <div class="container header-inner">
+      <div class="logo">
+        <a href="https://floodrestorationgeelong.au/" target="_blank" rel="noopener">
+          <img 
+            src="https://floodrestorationgeelong.au/wp-content/uploads/2025/10/Logo-1-removebg-preview-300x133.jpg" 
+            alt="Flood Restoration Geelong Logo"
+          />
+        </a>
+      </div>
+
+      <nav :class="{ 'is-open': isMenuOpen }" @click.stop>
+        <button class="close-menu" @click="closeMenu" aria-label="Close Menu">&times;</button>
+        <ul>
+          <li><a href="https://floodrestorationgeelong.au/" @click="closeMenu">Home</a></li>
+          <li><a href="https://floodrestorationgeelong.au/about" @click="closeMenu">About</a></li>
+          <li><a href="https://floodrestorationgeelong.au/emergency-water-restoration-geelong" @click="closeMenu">Emergency Water Restoration</a></li>
+          <li><a href="https://floodrestorationgeelong.au/water-damage-repairs-geelong" @click="closeMenu">Water Damage Repairs</a></li>
+          <li class="has-submenu" :class="{ 'is-active': isSubmenuOpen }">
+            <button class="submenu-toggle" @click.stop="toggleSubmenu" type="button">
+              Services <span class="arrow" :style="{ transform: isSubmenuOpen ? 'rotate(180deg)' : 'none' }">▼</span>
+            </button>
+            <ul class="submenu" v-if="isSubmenuOpen">
+              <li><a href="https://floodrestorationgeelong.au/carpet-drying-geelong" @click="closeMenu">Carpet Drying</a></li>
+              <li><a href="https://floodrestorationgeelong.au/carpet-water-extraction-geelong" @click="closeMenu">Carpet Water Extraction</a></li>
+              <li><a href="https://floodrestorationgeelong.au/flood-damage-restoration-geelong" @click="closeMenu">Flood Damage Restoration</a></li>
+              <li><a href="https://floodrestorationgeelong.au/mould-remediation-geelong" @click="closeMenu">Mould Remediation</a></li>
+              <li><a href="https://floodrestorationgeelong.au/burst-pipes-geelong" @click="closeMenu">Burst Pipes</a></li>
+            </ul>
+          </li>
+          <li><a href="https://floodrestorationgeelong.au/blogs" @click="closeMenu">Blogs</a></li>
+          <li><a href="https://floodrestorationgeelong.au/contact-flood-restoration-geelong" @click="closeMenu">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="cta-group">
+        <a href="tel:0459338998" class="mobile-call-btn" aria-label="Call Now">📞</a>
+        <a href="https://floodrestorationgeelong.au/contact" class="btn-book" @click="handleBookClick">Book Now</a>
+        <button class="menu-toggle" @click="toggleMenu" aria-label="Toggle Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
 </template>
 
 <style scoped>
@@ -106,18 +100,18 @@ const handleBookClick = (e) => {
   border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
-top-bar-inner {
+.top-bar-inner {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-top-bar-left {
+.top-bar-left {
   display: flex;
   gap: 25px;
 }
 
-top-info-item {
+.top-info-item {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -125,7 +119,7 @@ top-info-item {
   transition: opacity 0.2s;
 }
 
-top-info-item:hover {
+.top-info-item:hover {
   opacity: 0.8;
 }
 
@@ -398,7 +392,7 @@ nav ul li a:hover, .submenu-toggle:hover {
     color: var(--white);
     border-radius: 50%;
     font-size: 18px;
-    box-shadow: 0 4px 10px rgba(0,0, 124, 190, 0.3);
+    box-shadow: 0 4px 10px rgba(0, 124, 190, 0.3);
   }
 
   .logo img {
