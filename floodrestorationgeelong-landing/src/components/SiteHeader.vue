@@ -12,7 +12,6 @@ const closeMenu = () => {
   isMenuOpen.value = false
 }
 
-
 const isSubmenuOpen = ref(false)
 
 const toggleSubmenu = () => {
@@ -28,11 +27,9 @@ const handleBookClick = (e) => {
 
 <template>
   <div class="site-header">
-    <!-- Backdrop inside component root so clicks and stacking behave correctly -->
     <div v-if="isMenuOpen" class="menu-backdrop" @click="closeMenu"></div>
 
-    <!-- Topbar -->
-    <div class="top-bar">
+    <div class="top-bar" @click.stop>
       <div class="container top-bar-inner">
         <div class="top-bar-left">
           <a href="tel:0459338998" class="top-info-item">
@@ -47,7 +44,7 @@ const handleBookClick = (e) => {
       </div>
     </div>
 
-    <header>
+    <header @click.stop>
       <div class="container header-inner">
         <div class="logo">
           <a href="https://floodrestorationgeelong.au/" target="_blank" rel="noopener">
@@ -69,7 +66,6 @@ const handleBookClick = (e) => {
               <button class="submenu-toggle" @click.stop="toggleSubmenu" type="button">
                 Services <span class="arrow" :style="{ transform: isSubmenuOpen ? 'rotate(180deg)' : 'none' }">▼</span>
               </button>
-              <!-- Use v-show instead of v-if so CSS-based transitions/desktop rules don't conflict -->
               <ul class="submenu" v-show="isSubmenuOpen">
                 <li><a href="https://floodrestorationgeelong.au/carpet-drying-geelong" @click="closeMenu">Carpet Drying</a></li>
                 <li><a href="https://floodrestorationgeelong.au/carpet-water-extraction-geelong" @click="closeMenu">Carpet Water Extraction</a></li>
@@ -86,7 +82,7 @@ const handleBookClick = (e) => {
         <div class="cta-group">
           <a href="tel:0459338998" class="mobile-call-btn" aria-label="Call Now">📞</a>
           <a href="https://floodrestorationgeelong.au/contact" class="btn-book" @click="handleBookClick">Book Now</a>
-          <button class="menu-toggle" @click="toggleMenu" aria-label="Toggle Menu">
+          <button class="menu-toggle" @click.stop="toggleMenu" aria-label="Toggle Menu">
             <span></span>
             <span></span>
             <span></span>
@@ -106,18 +102,18 @@ const handleBookClick = (e) => {
   border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
-top-bar-inner {
+.top-bar-inner {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-top-bar-left {
+.top-bar-left {
   display: flex;
   gap: 25px;
 }
 
-top-info-item {
+.top-info-item {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -125,7 +121,7 @@ top-info-item {
   transition: opacity 0.2s;
 }
 
-top-info-item:hover {
+.top-info-item:hover {
   opacity: 0.8;
 }
 
@@ -150,7 +146,7 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1000;
+  z-index: 2000; 
   padding: 12px 0;
 }
 
