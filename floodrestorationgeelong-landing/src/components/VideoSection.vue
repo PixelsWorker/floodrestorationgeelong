@@ -42,6 +42,10 @@ const videos = ref([
                 :src="`https://img.youtube.com/vi/${video.id}/hqdefault.jpg`" 
                 :alt="video.title" 
                 class="video-thumb"
+                loading="lazy"
+                decoding="async"
+                width="480"
+                height="360"
               />
               <div class="play-button">
                 <svg viewBox="0 0 140 140" width="60"><circle cx="70" cy="70" r="65" fill="rgba(0,0,0,0.5)"/><polygon points="50,40 100,70 50,100" fill="white"/></svg>

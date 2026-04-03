@@ -29,6 +29,10 @@
         <img 
           src="https://floodrestorationgeelong.au/wp-content/uploads/2026/01/flood-restoration-geelong-van-with-equipment-768x1024.webp" 
           alt="Flood Restoration Geelong Emergency Response Van"
+          loading="lazy"
+          decoding="async"
+          width="768"
+          height="1024"
         />
       </div>
     </div>

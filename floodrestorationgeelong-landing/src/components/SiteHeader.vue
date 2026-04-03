@@ -51,6 +51,9 @@ const handleBookClick = (e) => {
             <img 
               src="https://floodrestorationgeelong.au/wp-content/uploads/2025/10/Logo-1-removebg-preview-300x133.jpg" 
               alt="Flood Restoration Geelong Logo"
+              width="300"
+              height="133"
+              decoding="async"
             />
           </a>
         </div>

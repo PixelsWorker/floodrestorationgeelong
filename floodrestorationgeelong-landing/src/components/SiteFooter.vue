@@ -7,6 +7,10 @@
             src="https://floodrestorationgeelong.au/wp-content/uploads/2025/10/Logo-1-removebg-preview-300x133.jpg" 
             alt="Flood Restoration Geelong Logo"
             class="footer-logo"
+            loading="lazy"
+            decoding="async"
+            width="300"
+            height="133"
           />
         </a>
         <p>Your local Geelong experts in emergency flood recovery and water damage repairs. Available 24/7 for residential and commercial properties.</p>
@@ -50,7 +54,7 @@
           </li>
         </ul>
         <div class="iicrc-logo">
-          <img src="https://floodrestorationgeelong.au/wp-content/uploads/2025/10/iicrc.webp" alt="IICRC Certified" />
+          <img src="https://floodrestorationgeelong.au/wp-content/uploads/2025/10/iicrc.webp" alt="IICRC Certified" loading="lazy" decoding="async" width="60" height="60" />
         </div>
       </div>
     </div>

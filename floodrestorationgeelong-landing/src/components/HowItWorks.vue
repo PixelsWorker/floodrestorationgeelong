@@ -83,6 +83,10 @@ const toggleStep = (index) => {
             <img 
               src="https://floodrestorationgeelong.au/wp-content/uploads/2025/11/WhatsApp-Image-2025-11-05-at-12.39.42-PM-768x1024.jpeg" 
               alt="Professional Flood Restoration in Progress"
+              loading="lazy"
+              decoding="async"
+              width="768"
+              height="1024"
             />
             <div class="image-overlay">
               <span class="badge">Professional Quality</span>

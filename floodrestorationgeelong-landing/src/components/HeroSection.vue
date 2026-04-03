@@ -26,8 +26,17 @@ onMounted(() => {
         :key="index"
         class="slide"
         :class="{ active: currentSlide === index }"
-        :style="{ backgroundImage: `url(${slide})` }"
-      ></div>
+      >
+        <img 
+          :src="slide" 
+          alt="Flood Restoration Geelong" 
+          :fetchpriority="index === 0 ? 'high' : 'auto'"
+          :decoding="index === 0 ? 'sync' : 'async'"
+          width="1920"
+          height="1080"
+          class="hero-img"
+        />
+      </div>
       <div class="overlay"></div>
     </div>
 
@@ -85,10 +94,14 @@ onMounted(() => {
   left: 0;
   width: 100%;
   height: 100%;
-  background-size: cover;
-  background-position: center;
   opacity: 0;
   transition: opacity 1.5s ease-in-out;
+}
+
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .slide.active {

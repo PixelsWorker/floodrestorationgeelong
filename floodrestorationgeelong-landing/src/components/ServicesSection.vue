@@ -61,7 +61,16 @@ const services = [
       <div class="services-grid">
         <div v-for="(service, index) in services" :key="index" class="service-card">
           <div class="card-image">
-            <img :src="service.image" :alt="service.title" />
+            <img 
+              :src="service.image" 
+              :srcset="`${service.image.replace('-1024x768.webp', '-768x576.webp')} 768w, ${service.image} 1024w`"
+              sizes="(max-width: 768px) 100vw, (max-width: 1100px) 33vw, 300px"
+              :alt="service.title"
+              loading="lazy"
+              decoding="async"
+              width="800"
+              height="600"
+            />
             <div class="overlay">
               <a :href="service.link" target="_blank" rel="noopener" class="btn btn-sm btn-primary">View Service</a>
             </div>
