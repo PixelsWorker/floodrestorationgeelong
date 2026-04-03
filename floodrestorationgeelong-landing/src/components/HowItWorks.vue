@@ -82,6 +82,8 @@ const toggleStep = (index) => {
           <div class="featured-image">
             <img 
               src="https://floodrestorationgeelong.au/wp-content/uploads/2025/11/WhatsApp-Image-2025-11-05-at-12.39.42-PM-768x1024.jpeg" 
+              :srcset="`https://floodrestorationgeelong.au/wp-content/uploads/2025/11/WhatsApp-Image-2025-11-05-at-12.39.42-PM-400x533.jpeg 400w, https://floodrestorationgeelong.au/wp-content/uploads/2025/11/WhatsApp-Image-2025-11-05-at-12.39.42-PM-768x1024.jpeg 768w`"
+              sizes="(max-width: 768px) 100vw, 600px"
               alt="Professional Flood Restoration in Progress"
               loading="lazy"
               decoding="async"

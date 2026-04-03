@@ -147,7 +147,7 @@ const toggleExpand = (index) => {
               <div>
                 <div class="name-row">
                   <span class="name">{{ review.name }}</span>
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" class="g-logo" width="16" height="16" loading="lazy" decoding="async" />
+                  <img src="/google-g-logo.svg" alt="Google" class="g-logo" width="16" height="16" loading="lazy" decoding="async" />
                 </div>
                 <div class="date">{{ review.date }}</div>
               </div>
